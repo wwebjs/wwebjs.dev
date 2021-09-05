@@ -1,9 +1,5 @@
 const { description } = require('../../package')
 
-const guidePages = require('fs').readdirSync(require("path").join(__dirname, "../guide/")).map(entry => entry.replace(".md", "").replace("README", ""));
-
-
-
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
@@ -61,7 +57,8 @@ module.exports = {
           title: 'Guide',
           collapsable: false,
           children: [
-            
+            '',
+            'getting-started'
           ]
         }
       ],
