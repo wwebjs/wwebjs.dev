@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta name="generator" content="JSDoc 3.6.7">
+  <meta charset="utf-8">
+  <title>whatsapp-web.js 1.14.0 &raquo; Source: structures/GroupChat.js</title>
+  <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Karla:400,400i,700,700i" type="text/css">
+  <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Noto+Serif:400,400i,700,700i" type="text/css">
+  <link rel="stylesheet" href="https://brick.a.ssl.fastly.net/Inconsolata:500" type="text/css">
+  <link href="css/baseline.css" rel="stylesheet">
+</head>
+
+<body onload="prettyPrint()">
+  <nav id="jsdoc-navbar" role="navigation" class="jsdoc-navbar">
+    <div id="jsdoc-navbar-container">
+      <div id="jsdoc-navbar-content">
+        <a href="index.html" class="jsdoc-navbar-package-name">whatsapp-web.<wbr>js 1.<wbr>14.<wbr>0</a>
+      </div>
+    </div>
+  </nav>
+  <div id="jsdoc-body-container">
+    <div id="jsdoc-content">
+      <div id="jsdoc-content-container">
+        <div id="jsdoc-banner" role="banner">
+        </div>
+        <div id="jsdoc-main" role="main">
+          <header class="page-header">
+            <h1>Source: structures/GroupChat.js</h1>
+          </header>
+          <article>
+            <pre class="prettyprint linenums"><code>&#x27;use strict&#x27;;
+
+const Chat &#x3D; require(&#x27;./Chat&#x27;);
+
+/**
+ * Group participant information
+ * @typedef {Object} GroupParticipant
+ * @property {ContactId} id
+ * @property {boolean} isAdmin
+ * @property {boolean} isSuperAdmin
+ */
+
+/**
+ * Represents a Group Chat on WhatsApp
+ * @extends {Chat}
+ */
+class GroupChat extends Chat {
+    _patch(data) {
+        this.groupMetadata &#x3D; data.groupMetadata;
+
+        return super._patch(data);
+    }
+
+    /**
+     * Gets the group owner
+     * @type {ContactId}
+     */
+    get owner() {
+        return this.groupMetadata.owner;
+    }
+    
+    /**
+     * Gets the date at which the group was created
+     * @type {date}
+     */
+    get createdAt() {
+        return new Date(this.groupMetadata.creation * 1000);
+    }
+
+    /** 
+     * Gets the group description
+     * @type {string}
+     */
+    get description() {
+        return this.groupMetadata.desc;
+    }
+
+    /**
+     * Gets the group participants
+     * @type {Array&amp;lt;GroupParticipant&gt;}
+     */
+    get participants() {
+        return this.groupMetadata.participants;
+    }
+
+    /**
+     * Adds a list of participants by ID to the group
+     * @param {Array&amp;lt;string&gt;} participantIds 
+     * @returns {Promise&amp;lt;Object&gt;}
+     */
+    async addParticipants(participantIds) {
+        return await this.client.pupPage.evaluate((chatId, participantIds) &#x3D;&gt; {
+            return window.Store.Wap.addParticipants(chatId, participantIds);
+        }, this.id._serialized, participantIds);
+    }
+
+    /**
+     * Removes a list of participants by ID to the group
+     * @param {Array&amp;lt;string&gt;} participantIds 
+     * @returns {Promise&amp;lt;Object&gt;}
+     */
+    async removeParticipants(participantIds) {
+        return await this.client.pupPage.evaluate((chatId, participantIds) &#x3D;&gt; {
+            return window.Store.Wap.removeParticipants(chatId, participantIds);
+        }, this.id._serialized, participantIds);
+    }
+
+    /**
+     * Promotes participants by IDs to admins
+     * @param {Array&amp;lt;string&gt;} participantIds 
+     * @returns {Promise&amp;lt;{ status: number }&gt;} Object with status code indicating if the operation was successful
+     */
+    async promoteParticipants(participantIds) {
+        return await this.client.pupPage.evaluate((chatId, participantIds) &#x3D;&gt; {
+            return window.Store.Wap.promoteParticipants(chatId, participantIds);
+        }, this.id._serialized, participantIds);
+    }
+
+    /**
+     * Demotes participants by IDs to regular users
+     * @param {Array&amp;lt;string&gt;} participantIds 
+     * @returns {Promise&amp;lt;{ status: number }&gt;} Object with status code indicating if the operation was successful
+     */
+    async demoteParticipants(participantIds) {
+        return await this.client.pupPage.evaluate((chatId, participantIds) &#x3D;&gt; {
+            return window.Store.Wap.demoteParticipants(chatId, participantIds);
+        }, this.id._serialized, participantIds);
+    }
+
+    /**
+     * Updates the group subject
+     * @param {string} subject 
+     * @returns {Promise} 
+     */
+    async setSubject(subject) {
+        let res &#x3D; await this.client.pupPage.evaluate((chatId, subject) &#x3D;&gt; {
+            return window.Store.Wap.changeSubject(chatId, subject);
+        }, this.id._serialized, subject);
+
+        if(res.status &#x3D;&#x3D; 200) {
+            this.name &#x3D; subject;
+        }
+    }
+
+    /**
+     * Updates the group description
+     * @param {string} description 
+     * @returns {Promise} 
+     */
+    async setDescription(description) {
+        let res &#x3D; await this.client.pupPage.evaluate((chatId, description) &#x3D;&gt; {
+            let descId &#x3D; window.Store.GroupMetadata.get(chatId).descId;
+            return window.Store.Wap.setGroupDescription(chatId, description, window.Store.genId(), descId);
+        }, this.id._serialized, description);
+
+        if (res.status &#x3D;&#x3D; 200) {
+            this.groupMetadata.desc &#x3D; description;
+        }
+    }
+
+    /**
+     * Updates the group settings to only allow admins to send messages.
+     * @param {boolean} [adminsOnly&#x3D;true] Enable or disable this option 
+     * @returns {Promise&amp;lt;boolean&gt;} Returns true if the setting was properly updated. This can return false if the user does not have the necessary permissions.
+     */
+    async setMessagesAdminsOnly(adminsOnly&#x3D;true) {
+        let res &#x3D; await this.client.pupPage.evaluate((chatId, value) &#x3D;&gt; {
+            return window.Store.Wap.setGroupProperty(chatId, &#x27;announcement&#x27;, value);
+        }, this.id._serialized, adminsOnly);
+
+        if (res.status !&#x3D;&#x3D; 200) return false;
+        
+        this.groupMetadata.announce &#x3D; adminsOnly;
+        return true;
+    }
+
+    /**
+     * Updates the group settings to only allow admins to edit group info (title, description, photo).
+     * @param {boolean} [adminsOnly&#x3D;true] Enable or disable this option 
+     * @returns {Promise&amp;lt;boolean&gt;} Returns true if the setting was properly updated. This can return false if the user does not have the necessary permissions.
+     */
+    async setInfoAdminsOnly(adminsOnly&#x3D;true) {
+        let res &#x3D; await this.client.pupPage.evaluate((chatId, value) &#x3D;&gt; {
+            return window.Store.Wap.setGroupProperty(chatId, &#x27;restrict&#x27;, value);
+        }, this.id._serialized, adminsOnly);
+
+        if (res.status !&#x3D;&#x3D; 200) return false;
+        
+        this.groupMetadata.restrict &#x3D; adminsOnly;
+        return true;
+    }
+
+    /**
+     * Gets the invite code for a specific group
+     * @returns {Promise&amp;lt;string&gt;} Group&#x27;s invite code
+     */
+    async getInviteCode() {
+        let res &#x3D; await this.client.pupPage.evaluate(chatId &#x3D;&gt; {
+            return window.Store.Wap.groupInviteCode(chatId);
+        }, this.id._serialized);
+
+        if (res.status &#x3D;&#x3D; 200) {
+            return res.code;
+        } 
+
+        throw new Error(&#x27;Not authorized&#x27;);
+    }
+    
+    /**
+     * Invalidates the current group invite code and generates a new one
+     * @returns {Promise}
+     */
+    async revokeInvite() {
+        return await this.client.pupPage.evaluate(chatId &#x3D;&gt; {
+            return window.Store.Wap.revokeGroupInvite(chatId);
+        }, this.id._serialized);
+    }
+
+    /**
+     * Makes the bot leave the group
+     * @returns {Promise}
+     */
+    async leave() {
+        return await this.client.pupPage.evaluate(chatId &#x3D;&gt; {
+            return window.Store.Wap.leaveGroup(chatId);
+        }, this.id._serialized);
+    }
+
+}
+
+module.exports &#x3D; GroupChat;</code></pre>
+          </article>
+        </div>
+      </div>
+      <nav id="jsdoc-toc-nav" role="navigation"></nav>
+    </div>
+  </div>
+  <footer id="jsdoc-footer" class="jsdoc-footer">
+    <div id="jsdoc-footer-container">
+      <p>
+        Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc</a> 3.6.7 on August 1, 2021.
+      </p>
+    </div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/tree.jquery.js"></script>
+  <script src="scripts/prettify.js"></script>
+  <script src="scripts/jsdoc-toc.js"></script>
+  <script src="scripts/linenumber.js"></script>
+  <script src="scripts/scrollanchor.js"></script>
+</body>
+
+</html>
