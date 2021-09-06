@@ -10,7 +10,7 @@ module.exports = {
    */
   description: description,
   
-  base: '/wwebjs-site/',
+  base: '/wwebjs-site',
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
