@@ -1,4 +1,4 @@
-const { description } = require('../../package')
+const { description, base } = require('../../package')
 
 module.exports = {
   /**
@@ -10,7 +10,7 @@ module.exports = {
    */
   description: description,
   
-  base: '/wwebjs-site',
+  base: base,
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -70,7 +70,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@images': this.base + '/assets/images/'
+        '@images': base + '/assets/images/'
       }
     }
   },

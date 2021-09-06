@@ -2,6 +2,7 @@
   "name": "whatsapp-web.js",
   "version": "0.0.1",
   "description": "A WhatsApp API client that connects through the WhatsApp Web browser app",
+  "base": "/wwebjs-site",
   "main": "index.js",
   "authors": {
     "name": "PurpShell",
@@ -16,6 +17,7 @@
   "dependencies": {
     "vuepress-theme-yuu": "^3.1.1"
   },
+
   "devDependencies": {
     "vuepress": "^1.5.3"
   }
