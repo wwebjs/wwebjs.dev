@@ -74,7 +74,7 @@ client.initialize();
 
 There we go! You should now see something like this after running the file:
 
-<img :src="$withBase('/assets/images/guide/qr-gen.png')"/>
+<img src="$withBase('/assets/images/guide/qr-gen.png')" alt/>
 
 After scanning this QR code, the client should be authorized and you should see a `Client is ready!` message being printed out.
 
