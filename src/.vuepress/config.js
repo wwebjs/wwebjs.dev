@@ -67,6 +67,14 @@ module.exports = {
 
   theme: "yuu",
 
+  configureWebpack: {
+    resolve: {
+      alias: {
+        '@images': this.base + '/assets/images/'
+      }
+    }
+  },
+
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
    */
