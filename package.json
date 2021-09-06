@@ -10,7 +10,7 @@
   "repository": "https://github.com/PurpShell/wwebjs-site",
   "scripts": {
     "docs:dev": "vuepress dev src",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build src"
   },
   "license": "MIT",
   "dependencies": {
