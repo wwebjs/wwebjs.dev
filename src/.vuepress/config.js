@@ -30,8 +30,8 @@ module.exports = {
    */
   themeConfig: {
     repo: 'pedroslopez/whatsapp-web.js',
-    editLinks: false,
-    docsDir: 'src/docs',
+    editLinks: true,
+    docsDir: 'src/guide',
     docsRepo: "PurpShell/wwebjs-site",
     nav: [
       {
