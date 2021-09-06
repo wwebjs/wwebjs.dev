@@ -40,7 +40,7 @@ module.exports = {
       },
       {
         text: 'Documentation',
-        link: '/docs/'
+        link: 'https://docs.wwebjs.dev'
       },
       {
         text: 'npm',
@@ -62,31 +62,6 @@ module.exports = {
           ]
         }
       ],
-      '/docs/': [
-        {
-          title: 'Documentation',
-          collapsable: false,
-          children: [
-            'Constants',
-            'BusinessContact',
-            'Call',
-            'Chat',
-            'Client',
-            'ClientInfo',
-            'Contact',
-            'GroupChat',
-            'GroupNotification',
-            'InterfaceController',
-            'Label',
-            'Location',
-            'Message',
-            'MessageMedia',
-            'Order',
-            'PrivateChat',
-            'PrivateContact',
-            'Product',
-            'Util'
-          ]
         }
       ]
     }
