@@ -61,8 +61,6 @@ module.exports = {
             'handling-attachments'
           ]
         }
-      ],
-        }
       ]
     }
   },
