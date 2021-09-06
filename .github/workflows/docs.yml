@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  docs:
+  src:
     runs-on: ubuntu-latest
 
     steps:

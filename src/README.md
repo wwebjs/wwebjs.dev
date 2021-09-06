@@ -109,8 +109,8 @@ Something missing? Make an issue and let us know!
 
 ## Links
 
-* [Reference](https://docs.wwebjs.dev/)
-* [Guide](https://guide.wwebjs.dev/) _(work in progress)_
+* [Reference](/docs/)
+* [Guide](/guide/) _(work in progress)_
 * [GitHub](https://github.com/pedroslopez/whatsapp-web.js)
 * [npm](https://npmjs.org/package/whatsapp-web.js)
 

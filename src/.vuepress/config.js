@@ -58,10 +58,37 @@ module.exports = {
           collapsable: false,
           children: [
             '',
-            'getting-started'
+            'handling-attachments'
           ]
         }
       ],
+      '/docs/': [
+        {
+          title: 'Documentation',
+          collapsable: false,
+          children: [
+            'Constants',
+            'BusinessContact',
+            'Call',
+            'Chat',
+            'Client',
+            'ClientInfo',
+            'Contact',
+            'GroupChat',
+            'GroupNotification',
+            'InterfaceController',
+            'Label',
+            'Location',
+            'Message',
+            'MessageMedia',
+            'Order',
+            'PrivateChat',
+            'PrivateContact',
+            'Product',
+            'Util'
+          ]
+        }
+      ]
     }
   },
 
