@@ -31,7 +31,7 @@ module.exports = {
   themeConfig: {
     repo: 'pedroslopez/whatsapp-web.js',
     editLinks: true,
-    docsDir: 'src/guide',
+    docsDir: 'src',
     docsRepo: "PurpShell/wwebjs-site",
     nav: [
       {
@@ -70,7 +70,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@images': base + '/assets/images/'
+        '@guideImages': __dirname + '/assets/images/guide'
       }
     }
   },

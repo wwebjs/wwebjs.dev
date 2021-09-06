@@ -74,7 +74,7 @@ client.initialize();
 
 There we go! You should now see something like this after running the file:
 
-![](~@images/guide/qr-gen.png)
+![](~@guideImages/qr-gen.png)
 
 After scanning this QR code, the client should be authorized and you should see a `Client is ready!` message being printed out.
 
@@ -108,7 +108,7 @@ client.on('message', message => {
 });
 ```
 
-![](~@images/guide/ping-reply.png)
+![](~@guideImages/ping-reply.png)
 
 You could also choose **not** to send it as a quoted reply by using the `sendMessage` function available on the client:
 
@@ -120,7 +120,7 @@ client.on('message', message => {
 });
 ```
 
-![](~@images/guide/ping.png)
+![](~@guideImages/ping.png)
 
 In this case, notice that we had to specify which chat we were sending the message to.
 
