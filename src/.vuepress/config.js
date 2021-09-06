@@ -33,6 +33,7 @@ module.exports = {
     editLinks: true,
     docsDir: 'src',
     docsRepo: "PurpShell/wwebjs-site",
+    lastUpdated: 'Last Updated',
     nav: [
       {
         text: 'Guide',
@@ -67,13 +68,6 @@ module.exports = {
 
   theme: "yuu",
 
-  configureWebpack: {
-    resolve: {
-      alias: {
-        '@guideImages': __dirname + '/assets/images/guide'
-      }
-    }
-  },
 
   /**
    * Apply plugins，ref：https://v1.vuepress.vuejs.org/zh/plugin/
