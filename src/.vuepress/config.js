@@ -1,5 +1,3 @@
-const { description, base } = require('../../package')
-
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
@@ -8,7 +6,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  description: description,
+  description: 'A WhatsApp client library for NodeJS that connects through the WhatsApp Web browser app',
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -66,7 +64,7 @@ module.exports = {
     }
   },
 
-  theme: "yuu",
+  theme: 'yuu',
 
 
   /**
