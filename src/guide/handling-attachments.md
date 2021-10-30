@@ -20,7 +20,7 @@ client.on('message', async msg => {
 });
 ```
 
-The `downloadMedia` function returns an object of type [MessageMedia](https://pedroslopez.me/whatsapp-web.js/MessageMedia.html). This will give you access to its mimetype, base64 data and filename, if specified.
+The `downloadMedia` function returns an object of type [MessageMedia](https://docs.wwebjs.dev/MessageMedia.html). This will give you access to its mimetype, base64 data and filename, if specified.
 
 :::danger
 You shouldn't assume that the download will be successful. In cases where the media is not able to be downloaded \(for example, if the media has been deleted from the phone or can no longer be downloaded\), the `downloadMedia()` function will return `undefined`.
@@ -28,7 +28,7 @@ You shouldn't assume that the download will be successful. In cases where the me
 
 ## Sending Media
 
-You can easily send photos, audio, videos and gifs by using the library. To do this, you'll just need to construct a [MessageMedia](https://pedroslopez.me/whatsapp-web.js/MessageMedia.html) object, exactly like the one you get by downloading media. This requires the mimetype for the file you'll send, as well as a base64-encoded string representing the data.
+You can easily send photos, audio, videos and gifs by using the library. To do this, you'll just need to construct a [MessageMedia](https://docs.wwebjs.dev/MessageMedia.html) object, exactly like the one you get by downloading media. This requires the mimetype for the file you'll send, as well as a base64-encoded string representing the data.
 
 ```javascript
 const { MessageMedia } = require('whatsapp-web.js');
