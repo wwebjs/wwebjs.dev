@@ -1,13 +1,9 @@
 {
-  "name": "whatsapp-web.js",
-  "version": "0.0.1",
-  "description": "A WhatsApp API client that connects through the WhatsApp Web browser app",
-  "main": "index.js",
-  "authors": {
-    "name": "PurpShell",
-    "email": "rajeh@reforward.dev"
-  },
-  "repository": "https://github.com/PurpShell/wwebjs-site",
+  "name": "wwebjs.dev",
+  "version": "1.0.0",
+  "description": "The website for wwebjs.dev",
+  "repository": "https://github.com/wwebjs.dev",
+  "author": "WWebJS Contributors",
   "scripts": {
     "docs:dev": "vuepress dev src",
     "docs:build": "vuepress build src"
