@@ -9,8 +9,6 @@ module.exports = {
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
   description: description,
-  
-  base: base,
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -33,6 +31,7 @@ module.exports = {
     editLinks: true,
     docsDir: 'src',
     lastUpdated: 'Last Updated',
+    sidebarDepth: 3,
     nav: [
       {
         text: 'Guide',
