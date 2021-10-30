@@ -29,10 +29,9 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: 'pedroslopez/whatsapp-web.js',
+    repo: 'wwebjs/wwebjs.dev',
     editLinks: true,
     docsDir: 'src',
-    docsRepo: "PurpShell/wwebjs-site",
     lastUpdated: 'Last Updated',
     nav: [
       {
