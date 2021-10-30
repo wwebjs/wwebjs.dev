@@ -2,9 +2,6 @@
 title: Getting Started
 description: How to connect and send/receive messages
 ---
-<h2>Table of Contents</h2>
-
-[[toc]]
 
 # Getting Started
 

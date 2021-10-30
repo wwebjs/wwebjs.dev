@@ -2,9 +2,6 @@
 title: Handling Attachments
 description: How to download and upload files
 ---
-<h2>Table of Contents</h2>
-
-[[toc]]
 
 # Handling Attachments
 
