@@ -1,5 +1,3 @@
-const { description, base } = require('../../package')
-
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
@@ -8,9 +6,7 @@ module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#description
    */
-  description: description,
-  
-  base: base,
+  description: 'A WhatsApp client library for NodeJS that connects through the WhatsApp Web browser app',
 
   /**
    * Extra tags to be injected to the page HTML `<head>`
@@ -29,11 +25,11 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/theme/default-theme-config.html
    */
   themeConfig: {
-    repo: 'pedroslopez/whatsapp-web.js',
+    repo: 'wwebjs/wwebjs.dev',
     editLinks: true,
     docsDir: 'src',
-    docsRepo: "PurpShell/wwebjs-site",
     lastUpdated: 'Last Updated',
+    sidebarDepth: 3,
     nav: [
       {
         text: 'Guide',
@@ -59,14 +55,16 @@ module.exports = {
           collapsable: false,
           children: [
             '',
-            'handling-attachments'
+            'resuming-sessions',
+            'handling-attachments',
+            'mentioning-contacts',
           ]
         }
       ]
     }
   },
 
-  theme: "yuu",
+  theme: 'yuu',
 
 
   /**

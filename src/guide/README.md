@@ -2,14 +2,11 @@
 title: Getting Started
 description: How to connect and send/receive messages
 ---
-<h2>Table of Contents</h2>
-
-[[toc]]
 
 # Getting Started
 
 :::warning
-The whatsapp-web.js guide is still a work in progress. To learn about all the features available to you in the library, please check out the [documentation](/docs/).
+The whatsapp-web.js guide is still a work in progress. To learn about all the features available to you in the library, please check out the [documentation](https://docs.wwebjs.dev/).
 :::
 
 ## Installation
