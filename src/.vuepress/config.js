@@ -27,6 +27,7 @@ module.exports = {
   themeConfig: {
     repo: 'pedroslopez/whatsapp-web.js',
     docsRepo: 'wwebjs/wwebjs.dev',
+    docsBranch: 'main',
     editLinks: true,
     docsDir: 'src',
     lastUpdated: 'Last Updated',
