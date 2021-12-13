@@ -1,0 +1,5 @@
+# redirect old guide domain
+https://guide.wwebjs.dev/ https://wwebjs.dev/guide 301!
+https://guide.wwebjs.dev/features/resuming-sessions https://wwebjs.dev/guide/resuming-sessions.html 301!
+https://guide.wwebjs.dev/features/handling-attachments https://wwebjs.dev/guide/handling-attachments.html 301!
+https://guide.wwebjs.dev/features/user-mentions https://wwebjs.dev/guide/mentioning-contacts.html 301!
