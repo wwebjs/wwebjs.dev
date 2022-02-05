@@ -52,6 +52,18 @@ const media = MessageMedia.fromFilePath('./path/to/image.png');
 chat.sendMessage(media);
 ```
 
+### Sending files from a URL
+
+A similar helper function is also available for sending files based on a remote URL:
+
+```javascript
+const { MessageMedia } = require('whatsapp-web.js');
+
+const media = await MessageMedia.fromUrl('https://via.placeholder.com/350x150.png');
+chat.sendMessage(media);
+```
+
+
 ### Caveat for sending videos and gifs
 
 Whatsapp-web.js uses [puppeteer](https://github.com/puppeteer/puppeteer), which comes bundled with the Chromium browser, an open source version of the popular Google Chrome browser. Since AAC and H.264 are licensed formats, they are not supported by Chromium. More info on this can be found on the[ puppeteer documentation](https://github.com/puppeteer/puppeteer#q-what-features-does-puppeteer-not-support).
@@ -69,5 +81,5 @@ const client = new Client({
 The `executablePath` value will depend on your OS and install location for Chrome, but here are some defaults by OS:
 
 * **macOS:** `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome`
-* **Windows**: `C:/Program Files (x86)/Google/Chrome/Application/chrome.exe`
+* **Windows**: `C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe`
 * **Linux:** `/usr/bin/google-chrome-stable`
