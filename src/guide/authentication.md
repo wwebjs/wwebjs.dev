@@ -6,6 +6,8 @@ title: Authentication
 
 By default, whatsapp-web.js does not save session information. This means that you would have to scan the QR code to reauthenticate every time you restart the client. If you'd like to persist the session, you can pass an `authStrategy` as a client option. The library provides a few authentication strategies to choose from, but you can also choose to extend them or build your own.
 
+For most cases we recommend using the [`LocalAuth` strategy](#localauth-strategy), but if you're still not on a multidevice-enabled account, you can use [`LegacySessionAuth`](#legacysessionauth-strategy) for more flexibility.
+
 ## `NoAuth` Strategy
 
 This is the default `AuthStrategy` used when you don't provide one. It does not provide any means of saving and restoring sessions. You can set this if you'd like to be explicit about getting a fresh session every time the client is restarted. 
