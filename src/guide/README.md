@@ -75,9 +75,6 @@ There we go! You should now see something like this after running the file:
 
 After scanning this QR code, the client should be authorized and you should see a `Client is ready!` message being printed out.
 
-:::warning
-If you use WhatsApp Web on any other device, the current session will be terminated.
-:::
 
 ### Listening for messages
 
