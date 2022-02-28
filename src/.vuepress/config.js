@@ -57,7 +57,7 @@ module.exports = {
           collapsable: false,
           children: [
             '',
-            'resuming-sessions',
+            'authentication',
             'handling-attachments',
             'mentioning-contacts',
           ]
