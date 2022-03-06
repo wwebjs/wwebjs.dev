@@ -29,7 +29,7 @@ const client = new Client({
 `LocalAuth` requires a persistent filesystem to be able to restore sessions. This means that out of the box it is not compatible with hosts that provide ephemeral file systems, such as Heroku.
 :::
 
-This strategy enables session-restore functionality by passing a persistent user data directory to the browser. This means that other data, such as message history when using a multidevice-enabled account, will also be persisted and restored. 
+This strategy enables session-restore functionality by passing a persistent [user data directory](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md) to the browser. This means that other data, such as message history when using a multidevice-enabled account, will also be persisted and restored. 
 
 ```js
 const { Client, LocalAuth } = require('whatsapp-web.js');
