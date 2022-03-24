@@ -96,7 +96,7 @@ To test this out, let's build a simple ping/pong command:
 
 ```javascript
 client.on('message', message => {
-	if(message.body === '!ping') {
+	if (message.body === '!ping') {
 		message.reply('pong');
 	}
 });
@@ -108,7 +108,7 @@ You could also choose **not** to send it as a quoted reply by using the `sendMes
 
 ```javascript
 client.on('message', message => {
-	if(message.body === '!ping') {
+	if (message.body === '!ping') {
 		client.sendMessage(message.from, 'pong');
 	}
 });
