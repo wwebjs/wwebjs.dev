@@ -14,7 +14,7 @@ You can get all Contacts that have been mentioned in a message by using `getMent
 client.on('message', async (msg) => {
     const mentions = await msg.getMentions();
     
-    for(let contact of mentions) {
+    for (let contact of mentions) {
         console.log(`${contact.pushname} was mentioned`);
     }
 });
@@ -46,13 +46,13 @@ The following is a simple command that mentions all contacts in a group if someo
 ```javascript
 // Mention everyone
 client.on('message', async (msg) => {
-    if(msg.body === '!everyone') {
+    if (msg.body === '!everyone') {
         const chat = await msg.getChat();
         
         let text = "";
         let mentions = [];
 
-        for(let participant of chat.participants) {
+        for (let participant of chat.participants) {
             const contact = await client.getContactById(participant.id._serialized);
             
             mentions.push(contact);
