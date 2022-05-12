@@ -10,6 +10,7 @@
   },
   "license": "MIT",
   "dependencies": {
+    "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-theme-yuu": "^3.1.1"
   },
   "devDependencies": {

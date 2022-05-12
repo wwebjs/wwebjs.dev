@@ -11,14 +11,42 @@ The whatsapp-web.js guide is still a work in progress. To learn about all the fe
 
 ## Installation
 
+
 You can get the module from npm:
 
-```
+```bash
 $ npm i whatsapp-web.js
 ```
 
 :::tip Info
  NodeJS v12 or higher is required
+:::
+
+### Installation on no-gui systems
+
+:::warning
+If you want to install whatsapp-web.js on a system without GUI (for example `linux server images` that can just be accessed over a shell and dont have something like a desktop) there are a couple of things you need to do so puppeteer can emulate the chromium browser.
+:::
+
+For puppeteer to work, you need to install the following dependencies with the `apt-get` command (remember to `apt-get update` bevore you install)
+```bash
+$ sudo apt install -y gconf-service libgbm-dev libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+```
+
+You will also need to set the `--no-sandbox` flag in the puppeteer launch command
+```js
+...
+new Client({
+	...,
+	puppeteer: {
+		args: ['--no-sandbox'],
+	}
+})
+...
+```
+
+::: tip Info
+If you are running your program with root privileges, you should also use the `--disable-setuid-sandbox` flag since chromium doesn't support running root with no sandbox by default.
 :::
 
 ## First steps
