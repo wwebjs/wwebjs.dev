@@ -90,11 +90,12 @@ The code above, by default is listening in personal chat and group chat. If you 
 
 ```javascript
 client.on('message', async message => {
-  const chat = await message.getChat();
-  if (chat.isGroup){
-  	console.log("Group message");
-  } else {
-  	console.log("Private Message");
+  	const chat = await message.getChat();
+  	if (chat.isGroup){
+  		console.log("Group message");
+  	} else {
+  		console.log("Private Message");
+  	}
   }
 ```
 
