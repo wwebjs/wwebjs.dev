@@ -86,6 +86,18 @@ client.on('message', message => {
 });
 ```
 
+The code above, by default is listening in personal chat and group chat. If you want to specify the chat come from, you can identify using `isGroup` key extended from `getChat()` function. The keys will return `Boolean`. So, the code looks like:
+
+```javascript
+client.on('message', async message => {
+  const chat = await message.getChat();
+  if (chat.isGroup){
+  	console.log("Group message");
+  } else {
+  	console.log("Private Message");
+  }
+```
+
 Running this example should log all incoming messages to the console.
 
 ### Replying to messages
