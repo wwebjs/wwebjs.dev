@@ -15,6 +15,9 @@ module.exports = {
    * ref：https://v1.vuepress.vuejs.org/config/#head
    */
   head: [
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "/logo_favicon_32x32.png" }],
+    ['link', { rel: "icon", type: "image/png", sizes: "16x16", href: "/logo_favicon_16x16.png" }],
+    ['link', { rel: 'shortcut icon', type: 'image/x-icon', href: '/logo_favicon_shortcut.ico' }],
     ["meta", { name: "theme-color", content: "#3eaf7c" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     [
