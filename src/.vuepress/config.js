@@ -65,8 +65,44 @@ module.exports = {
           children: [
             "",
             "authentication",
-            "handling-attachments",
+            "getting-started",
             "mentioning-contacts",
+          ],
+        },
+      ],
+      "/interactions/": [
+        {
+          title: "Interactions",
+          collapsable: false,
+          children: [
+            "",
+          ],
+        },
+      ],
+      "/advanced/": [
+        {
+          title: "Advanced",
+          collapsable: false,
+          children: [
+            "",
+          ],
+        },
+      ],
+      "/popularTopics/": [
+        {
+          title: "Popular Topics",
+          collapsable: false,
+          children: [
+            "",
+          ],
+        },
+      ],
+      "/additionalInformation/": [
+        {
+          title: "Additional Information",
+          collapsable: false,
+          children: [
+            "",
           ],
         },
       ],

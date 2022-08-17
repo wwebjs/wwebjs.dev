@@ -13,7 +13,7 @@ You pass in the name as the first parameter, and an array of IDs you want to add
 
 ```javascript
 client.on("ready", async () => {
-    await client.createGroup("Testing 1", ["123456789@c.us", "234567980@c.us"])
+  await client.createGroup("Testing 1", ["123456789@c.us", "234567890@c.us"])
 })
 ```
 
@@ -21,7 +21,7 @@ This method returns the ID of the created group, and the participants that could
 
 ```javascript
 client.on("ready', async () => {
-  const res = await client.createGroup("Testing 2", ["345678901@c.us", "987654321@c.us"])
+  const res = await client.createGroup("Testing 2", ["345678901@c.us", "456789012@c.us"])
 
   res.gid // ID of the group that was just created (string)
   res.missingParticipants // Participants that couldn't be added to the group, and the reason with more info ({[jid]: {}})
