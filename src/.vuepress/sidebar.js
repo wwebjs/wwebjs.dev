@@ -3,28 +3,28 @@ module.exports = {
     {
       title: "Guide",
       children: [
-        "/guide/",
-        "/guide/getting-started",
-        "/guide/authentication",
-        "/guide/creating-your-app",
-        "/guide/how-to-use",
+        "guide/",
+        "guide/getting-started",
+        "guide/authentication",
+        "guide/creating-your-app",
+        "guide/how-to-use",
       ],
     },
     {
       title: "Interactions",
-      children: ["/interactions/"],
+      children: ["interactions/"],
     },
     {
       title: "Advanced",
-      children: ["/advanced/"],
+      children: ["advanced/"],
     },
     {
       title: "Popular Topics",
-      children: ["/popularTopics/"],
+      children: ["popularTopics/"],
     },
     {
       title: "Additional Information",
-      children: ["/additionalInformation/"],
+      children: ["additionalInformation/"],
     },
   ],
 };
