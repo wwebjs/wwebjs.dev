@@ -61,29 +61,34 @@ module.exports = {
       "/guide/": [
         {
           title: "Guide",
+          collapsable: false,
           children: [
-            "/guide/",
-            "/guide/getting-started",
-            "/guide/authentication",
-            "/guide/creating-your-app",
-            "/guide/how-to-use",
+            "guide/",
+            "guide/getting-started",
+            "guide/authentication",
+            "guide/creating-your-app",
+            "guide/how-to-use",
           ],
         },
         {
           title: "Interactions",
-          children: ["/interactions/"],
+          collapsable: false,
+          children: ["interactions/"],
         },
         {
           title: "Advanced",
-          children: ["/advanced/"],
+          collapsable: false,
+          children: ["advanced/"],
         },
         {
           title: "Popular Topics",
-          children: ["/popularTopics/"],
+          collapsable: false,
+          children: ["popularTopics/"],
         },
         {
           title: "Additional Information",
-          children: ["/additionalInformation/"],
+          collapsable: false,
+          children: ["additionalInformation/"],
         },
       ],
     },
