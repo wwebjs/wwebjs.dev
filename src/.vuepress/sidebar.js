@@ -1,13 +1,13 @@
 module.exports = {
-  "/src/pages/": [
+  "/": [
     {
       title: "Guide",
       children: [
         "/guide/",
         "/guide/getting-started",
         "/guide/authentication",
-        "/guide/creating-your-app.md",
-        "/guide/how-to-use.md",
+        "/guide/creating-your-app",
+        "/guide/how-to-use",
       ],
     },
     {
