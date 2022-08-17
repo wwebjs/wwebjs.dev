@@ -3,11 +3,11 @@ module.exports = {
     {
       title: "Guide",
       children: [
-        "guide/",
-        "guide/getting-started",
-        "guide/authentication",
-        "guide/creating-your-app",
-        "guide/how-to-use",
+        "/guide/",
+        "/guide/getting-started",
+        "/guide/authentication",
+        "/guide/creating-your-app",
+        "/guide/how-to-use",
       ],
     },
     {
