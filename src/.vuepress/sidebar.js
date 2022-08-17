@@ -1,5 +1,5 @@
 module.exports = {
-  "/pages/": [
+  "/src/pages/": [
     {
       title: "Guide",
       children: [
