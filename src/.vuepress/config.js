@@ -64,46 +64,38 @@ module.exports = {
           collapsable: false,
           children: [
             "",
-            "getting-started",
-            "authentication",
-            "creating-your-app.md",
-            "how-to-use.md",
+            "/guide/getting-started",
+            "/guide/authentication",
+            "/guide/creating-your-app.md",
+            "/guide/how-to-use.md",
           ],
         },
-      ],
-      "/interactions/": [
         {
           title: "Interactions",
           collapsable: false,
           children: [
-            "",
+            "/interactions/",
           ],
         },
-      ],
-      "/advanced/": [
         {
           title: "Advanced",
           collapsable: false,
           children: [
-            "",
+            "/advanced/",
           ],
         },
-      ],
-      "/popularTopics/": [
         {
           title: "Popular Topics",
           collapsable: false,
           children: [
-            "",
+            "/popularTopics/",
           ],
         },
-      ],
-      "/additionalInformation/": [
         {
           title: "Additional Information",
           collapsable: false,
           children: [
-            "",
+            "/additionalInformation/",
           ],
         },
       ],
