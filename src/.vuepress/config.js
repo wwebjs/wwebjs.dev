@@ -64,9 +64,10 @@ module.exports = {
           collapsable: false,
           children: [
             "",
-            "authentication",
             "getting-started",
-            "mentioning-contacts",
+            "authentication",
+            "creating-your-app.md",
+            "how-to-use.md",
           ],
         },
       ],
