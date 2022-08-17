@@ -1,5 +1,5 @@
 module.exports = {
-  "/guide/": [
+  "/": [
     {
       title: "Guide",
       children: [
