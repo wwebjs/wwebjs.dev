@@ -1,5 +1,5 @@
 module.exports = {
-  "/": [
+  "/guide/": [
     {
       title: "Guide",
       children: [
@@ -12,19 +12,19 @@ module.exports = {
     },
     {
       title: "Interactions",
-      children: ["interactions/"],
+      children: ["/interactions/"],
     },
     {
       title: "Advanced",
-      children: ["advanced/"],
+      children: ["/advanced/"],
     },
     {
       title: "Popular Topics",
-      children: ["popularTopics/"],
+      children: ["/popularTopics/"],
     },
     {
       title: "Additional Information",
-      children: ["additionalInformation/"],
+      children: ["/additionalInformation/"],
     },
   ],
 };
