@@ -58,12 +58,12 @@ module.exports = {
       },
     ],
     sidebar: {
-      "/guide/": [
+      "/": [
         {
           title: "Guide",
           collapsable: false,
           children: [
-            "guide/README",
+            "guide/",
             "guide/getting-started",
             "guide/authentication",
             "guide/creating-your-app",
