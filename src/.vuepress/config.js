@@ -1,3 +1,5 @@
+import sidebar from "./sidebar";
+
 module.exports = {
   /**
    * Ref：https://v1.vuepress.vuejs.org/config/#title
@@ -57,49 +59,7 @@ module.exports = {
         link: "https://github.com/pedroslopez/whatsapp-web.js/releases",
       },
     ],
-    sidebar: {
-      "/guide/": [
-        {
-          title: "Guide",
-          collapsable: false,
-          children: [
-            "",
-            "/guide/getting-started",
-            "/guide/authentication",
-            "/guide/creating-your-app.md",
-            "/guide/how-to-use.md",
-          ],
-        },
-        {
-          title: "Interactions",
-          collapsable: false,
-          children: [
-            "/interactions/",
-          ],
-        },
-        {
-          title: "Advanced",
-          collapsable: false,
-          children: [
-            "/advanced/",
-          ],
-        },
-        {
-          title: "Popular Topics",
-          collapsable: false,
-          children: [
-            "/popularTopics/",
-          ],
-        },
-        {
-          title: "Additional Information",
-          collapsable: false,
-          children: [
-            "/additionalInformation/",
-          ],
-        },
-      ],
-    },
+    sidebar: sidebar,
   },
 
   theme: "yuu",
