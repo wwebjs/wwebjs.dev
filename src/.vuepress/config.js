@@ -63,7 +63,7 @@ module.exports = {
           title: "Guide",
           collapsable: false,
           children: [
-            "guide/",
+            "guide",
             "guide/getting-started",
             "guide/authentication",
             "guide/creating-your-app",
