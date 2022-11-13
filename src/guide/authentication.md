@@ -129,3 +129,86 @@ client.on('authenticated', (session) => {
     });
 });
 ```
+
+## `RemoteAuth` Strategy
+
+::: danger INFO
+As the [`LegacySessionAuth` strategy]() is not useable for [multidevice-enabled accounts]()  you can use [`RemoteAuth` strategy]() instead for more flexibility. 
+::: 
+
+The [`RemoteAuth` strategy]() allows you saving the WhatsApp Multi-Device session into a remote database. Instead of depending on a persistent FileSystem, RemoteAuth is able to save, extract & restore sessions efficiently. It also generates periodic backups so that the session saved is always on sync and avoid data-loss. To use this Auth strategy you need to install the `wwebjs-mongo` module in your terminal first.
+
+<code-group>
+<code-block title="npm" active>
+```bash
+npm install wwebjs-mongo
+```
+</code-block>
+
+<code-block title="yarn">
+```bash
+yarn add wwebjs-mongo
+```
+</code-block>
+</code-group>
+
+### Example Usage:
+
+```js {1,4-5,8-9,11-14}
+const { Client, RemoteAuth } = require('whatsapp-web.js');
+
+// Require database
+const { MongoStore } = require('wwebjs-mongo');
+const mongoose = require('mongoose');
+
+// Load the session data
+mongoose.connect(process.env.MONGODB_URI).then(() => {
+    const store = new MongoStore({ mongoose: mongoose });
+    const client = new Client({
+        authStrategy: new RemoteAuth({
+            store: store,
+            backupSyncIntervalMs: 300000
+        })
+    });
+
+    client.initialize();
+});
+```
+After the initial QR scan to link the device, RemoteAuth takes about `1 minute` to successfully save the WhatsApp session into the remote database, therefore the ready event does not mean the session has been saved yet.
+
+In order to listen to this event, you can now use the following:
+
+```js
+client.on('remote_session_saved', () => {
+    // Do Stuff...
+}
+```
+
+### Remote stores
+Stores are external-independent database plugins that allow storing the session into different databases. New Stores will need to implement the following interface in order to work with RemoteAuth:
+
+<code-group>
+<code-block title="sessionExists" active>
+```js
+await store.sessionExists({session: 'yourSessionName'});
+```
+</code-block>
+
+<code-block title="save">
+```js
+await store.save({session: 'yourSessionName'});
+```
+</code-block>
+
+<code-block title="extract">
+```js
+await store.extract({session: 'yourSessionName'});
+```
+</code-block>
+
+<code-block title="delete">
+```js
+await store.delete({session: 'yourSessionName'});
+```
+</code-block>
+</code-group>
