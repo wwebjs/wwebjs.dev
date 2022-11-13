@@ -154,7 +154,7 @@ yarn add wwebjs-mongo
 
 ### Example Usage:
 
-```js {1,4-5,8-9,11-14}
+```js
 const { Client, RemoteAuth } = require('whatsapp-web.js');
 
 // Require database
