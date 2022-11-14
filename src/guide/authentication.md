@@ -187,6 +187,7 @@ client.on('remote_session_saved', () => {
 ### Remote stores
 Stores are external-independent database plugins that allow storing the session into different databases. New Stores will need to implement the following interface in order to work with RemoteAuth:
 
+<code-group>
 <code-block title="save" active>
 ```javascript
 await store.save({session: 'yourSessionName'});
@@ -197,12 +198,11 @@ await store.save({session: 'yourSessionName'});
 ::: tip INFO
 
 :::
-```js
+```javascript
 await store.delete({session: 'yourSessionName'});
 ```
 </code-block>
 
-<code-group>
 <code-block title="sessionExists">
 ```javascript
 await store.sessionExists({session: 'yourSessionName'});
@@ -214,10 +214,9 @@ await store.sessionExists({session: 'yourSessionName'});
 await store.extract({session: 'yourSessionName'});
 ```
 </code-block>
-
 </code-group>
 
-Cross Platform Compatibility:
+###Cross Platform Compatibility
 | Status    | OS                               |
 | :-------: |:---------------------------------|
 | ✅        | MacOS                            |
