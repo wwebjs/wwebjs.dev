@@ -132,7 +132,7 @@ client.on('authenticated', (session) => {
 
 ## `RemoteAuth` Strategy
 
-::: danger INFO
+::: warning INFO
 As the [`LegacySessionAuth` strategy]() is not useable for [multidevice-enabled accounts]()  you can use [`RemoteAuth` strategy]() instead for more flexibility. 
 ::: 
 
@@ -154,7 +154,7 @@ yarn add wwebjs-mongo
 
 ### Example Usage:
 
-```js
+```javascript
 const { Client, RemoteAuth } = require('whatsapp-web.js');
 
 // Require database
@@ -178,7 +178,7 @@ After the initial QR scan to link the device, RemoteAuth takes about `1 minute` 
 
 In order to listen to this event, you can now use the following:
 
-```js
+```javascript
 client.on('remote_session_saved', () => {
     // Do Stuff...
 }
@@ -187,28 +187,39 @@ client.on('remote_session_saved', () => {
 ### Remote stores
 Stores are external-independent database plugins that allow storing the session into different databases. New Stores will need to implement the following interface in order to work with RemoteAuth:
 
-<code-group>
-<code-block title="sessionExists" active>
-```js
-await store.sessionExists({session: 'yourSessionName'});
-```
-</code-block>
-
-<code-block title="save">
-```js
+<code-block title="save" active>
+```javascript
 await store.save({session: 'yourSessionName'});
 ```
 </code-block>
 
-<code-block title="extract">
-```js
-await store.extract({session: 'yourSessionName'});
-```
-</code-block>
-
 <code-block title="delete">
+::: tip INFO
+
+:::
 ```js
 await store.delete({session: 'yourSessionName'});
 ```
 </code-block>
+
+<code-group>
+<code-block title="sessionExists">
+```javascript
+await store.sessionExists({session: 'yourSessionName'});
+```
+</code-block>
+
+<code-block title="extract">
+```javascript
+await store.extract({session: 'yourSessionName'});
+```
+</code-block>
+
 </code-group>
+
+Cross Platform Compatibility:
+| Status    | OS                               |
+| :-------: |:---------------------------------|
+| ✅        | MacOS                            |
+| ✅        | Ubuntu 20.04 (Heroku Compatible) |
+| ✅        | Windows                          |
