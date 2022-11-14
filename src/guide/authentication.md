@@ -195,9 +195,6 @@ await store.save({session: 'yourSessionName'});
 </code-block>
 
 <code-block title="delete">
-::: tip INFO
-
-:::
 ```javascript
 await store.delete({session: 'yourSessionName'});
 ```
@@ -216,7 +213,12 @@ await store.extract({session: 'yourSessionName'});
 </code-block>
 </code-group>
 
-###Cross Platform Compatibility
+::: tip INFO
+Informtion about session // await help
+:::
+
+### Cross Platform Compatibility
+
 | Status    | OS                               |
 | :-------: |:---------------------------------|
 | ✅        | MacOS                            |
