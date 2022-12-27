@@ -214,7 +214,7 @@ await store.extract({session: 'yourSessionName'});
 </code-group>
 
 ::: tip INFO
-Informtion about session // await help
+Information about session // await help
 :::
 
 ### Cross Platform Compatibility
