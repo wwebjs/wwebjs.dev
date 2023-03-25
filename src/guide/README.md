@@ -15,7 +15,7 @@ The whatsapp-web.js guide is still a work in progress. To learn about all the fe
 You can get the module from npm:
 
 ```bash
-$ npm i whatsapp-web.js
+npm i whatsapp-web.js
 ```
 
 :::tip Info
@@ -30,7 +30,7 @@ If you want to install whatsapp-web.js on a system without GUI (for example `lin
 
 For puppeteer to work, you need to install the following dependencies with the `apt-get` command (remember to `apt-get update` before you install)
 ```bash
-$ sudo apt install -y gconf-service libgbm-dev libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
+sudo apt install -y gconf-service libgbm-dev libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
 ```
 
 You will also need to set the `--no-sandbox` flag in the puppeteer launch command
@@ -75,7 +75,7 @@ Since whatsapp-web.js works by running WhatsApp Web in the background and automa
 Right now, we're just logging the text representation of that QR code to the console, but we can do better. Let's install and use [qrcode-terminal](https://www.npmjs.com/package/qrcode-terminal) so we can render the QR code:
 
 ```bash
-$ npm i qrcode-terminal
+npm i qrcode-terminal
 ```
 
 And now we'll modify our code to use this new module:
