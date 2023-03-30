@@ -136,7 +136,7 @@ client.on('authenticated', (session) => {
 As the [`LegacySessionAuth` strategy]() is not useable for [multidevice-enabled accounts]()  you can use [`RemoteAuth` strategy]() instead for more flexibility. 
 ::: 
 
-The [`RemoteAuth` strategy]() allows you saving the WhatsApp Multi-Device session into a remote database. Instead of depending on a persistent FileSystem, RemoteAuth is able to save, extract & restore sessions efficiently. It also generates periodic backups so that the session saved is always on sync and avoid data-loss. To use this Auth strategy you need to install the `wwebjs-mongo` module in your terminal first.
+The [`RemoteAuth` strategy]() allows you to save the WhatsApp Multi-Device session into a remote database. Instead of depending on a persistent FileSystem, RemoteAuth is able to save, extract & restore sessions efficiently. It also generates periodic backups so that the saved session is always on sync and this avoids data-loss. To use this Auth strategy you need to install the `wwebjs-mongo` module in your terminal first.
 
 <code-group>
 <code-block title="npm" active>
