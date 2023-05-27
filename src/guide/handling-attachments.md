@@ -12,7 +12,7 @@ Sometimes your client may need to download and process media files that have bee
 You can detect which messages have attached media by checking its `hasMedia` property. Then, you can actually download the data by using `downloadMedia()`:
 
 ```javascript
-client.on('message', async msg => {
+client.on('message_create', async msg => {
     if(msg.hasMedia) {
         const media = await msg.downloadMedia();
         // do something with the media data here
