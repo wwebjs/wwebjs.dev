@@ -11,7 +11,7 @@ description: How to get and send messages with mentioned Contacts
 You can get all Contacts that have been mentioned in a message by using `getMentions()`. This will conveniently return a list of [Contacts](https://docs.wwebjs.dev/Contact.html).
 
 ```javascript
-client.on('message', async (msg) => {
+client.on('message_create', async (msg) => {
     const mentions = await msg.getMentions();
     
     for(let contact of mentions) {
@@ -29,7 +29,7 @@ You can mention other contacts by using the `mentions` option when sending a mes
 ```javascript
 // Mention contacts that send you a message
 
-client.on('message', async (msg) => {
+client.on('message_create', async (msg) => {
     const chat = await msg.getChat();
     const contact = await msg.getContact();
     
@@ -45,7 +45,7 @@ The following is a simple command that mentions all contacts in a group if someo
 
 ```javascript
 // Mention everyone
-client.on('message', async (msg) => {
+client.on('message_create', async (msg) => {
     if(msg.body === '!everyone') {
         const chat = await msg.getChat();
         

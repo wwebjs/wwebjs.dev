@@ -109,7 +109,7 @@ After scanning this QR code, the client should be authorized and you should see 
 Now that we can connect to WhatsApp, it's time to listen for incoming messages. Doing so with whatsapp-web.js is pretty straightforward. The client emits a `message` event whenever a message is received. This means we can capture it like so:
 
 ```javascript
-client.on('message', message => {
+client.on('message_create', message => {
 	console.log(message.body);
 });
 ```
@@ -123,7 +123,7 @@ The messages received have a convenience function on them that allows you to dir
 To test this out, let's build a simple ping/pong command:
 
 ```javascript
-client.on('message', message => {
+client.on('message_create', message => {
 	if(message.body === '!ping') {
 		message.reply('pong');
 	}
@@ -135,7 +135,7 @@ client.on('message', message => {
 You could also choose **not** to send it as a quoted reply by using the `sendMessage` function available on the client:
 
 ```javascript
-client.on('message', message => {
+client.on('message_create', message => {
 	if(message.body === '!ping') {
 		client.sendMessage(message.from, 'pong');
 	}
