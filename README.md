@@ -18,3 +18,23 @@ This is the guide for the [whatsapp-web.js](https://github.com/pedroslopez/whats
 ## website status
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/d626778e-5786-4a34-a07d-69eda65c2430/deploy-status)](https://app.netlify.com/sites/wwebjs/deploys)
+
+## Contributing
+
+Everyone is welcome to contribute to this guide and help us improve it. Please take a moment to review the [guidelines for contributing][contributing] first, befor creating a pull request. Don't rush a contribution, test changes locally, make sure you're doing it correctly and then submit a pull request. Ideas for you first contribution can be found in the issue label [good first issue][good-first-issue] or in the [To-Do section][todo].
+
+## Help
+
+If you experiencing issues with the guide in understaning, please open an issue or ask on [Discord](https://discord.gg/H7DqQs4) for help.
+
+## Supporting the project
+
+You can support the maintainer of this project through the links below
+
+- [Support via GitHub Sponsors](https://github.com/sponsors/pedroslopez)
+- [Support via PayPal](https://www.paypal.me/psla/)
+- [Sign up for DigitalOcean](https://m.do.co/c/73f906a36ed4) and get $200 in credit when you sign up (Referral)
+
+[contributing]: https://github.com/wwebjs/wwebjs.dev/tree/candy/.github/CONTRIBUTING.md
+[good-first-issue]: https://github.com/wwebjs/wwebjs.dev/contribute
+[todo]: https://github.com/wwebjs/wwebjs.dev/projects/1

@@ -1,5 +1,7 @@
 ---
+lang: en-US
 title: Authentication
+description: How you can authenticate your client.
 ---
 
 # Authentication

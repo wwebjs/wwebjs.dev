@@ -1,4 +1,5 @@
 ---
+lang: en-US
 title: Getting Started
 description: How to connect and send/receive messages
 ---

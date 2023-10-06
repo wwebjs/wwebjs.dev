@@ -1,4 +1,5 @@
 ---
+lang: en-US
 title: Mentioning Contacts
 description: How to get and send messages with mentioned Contacts
 ---

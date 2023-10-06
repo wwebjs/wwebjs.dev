@@ -1,4 +1,5 @@
 ---
+lang: en-US
 title: Handling Attachments
 description: How to download and upload files
 ---
