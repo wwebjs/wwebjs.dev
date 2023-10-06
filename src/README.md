@@ -1,8 +1,15 @@
 ---
 home: true
-heroImage: logo.png
-actionText: Get Started →
-actionLink: /guide/
+title: whatsapp-web.js
+heroText: whatsapp-web.js
+heroImage: /images/logo.png
+actions:
+  - text: Guide →
+    link: /guide/
+    type: primary
+  - text: Documentation
+    link: https://docs.wwebjs.dev/
+    type: secondary
 features:
 - title: Automation for Everyone
   details: Programmatically control WhatsApp whether you're running user or business accounts.
