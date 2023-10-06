@@ -1,6 +1,8 @@
 <div align="center">
     <br />
-	<img src="assets/banner_green.png" title="wwebjs.dev Guide" alt="wwebjs.dev Guide" />
+    <p>
+        <a href="https://wwebjs.dev"><img src="assets/banner_green.png" title="wwebjs.dev Guide" alt="wwebjs.dev Guide" /></a>
+    </p>
     <br />
     <br />
     <p>

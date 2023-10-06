@@ -26,8 +26,13 @@ title: Contributing
 description: How to contribute to this guide.
 ---
 ```
-3. Add now your content to the file
-4. Add the file to the `guide` section in the `sidebar.js` file **Note:** The correct name of the file is required with the **.md** extension
+3. Add now the new content to the file
+4. Add the file to the `guide` section in the `sidebar.js` file in the `.vuepress` folder
+    <div>
+        <br />
+	    <img src="../assets/sidebar.png" title="wwebjs.dev Guide" alt="wwebjs.dev Guide" />
+    </div>
+   **Note:** The correct name of the file is required with the **.md** extension
 5. Visit the page in your browser on `http://localhost:8080/guide/your-file-name.html`
 
 If you want to learn more about adding [Markdown](https://v2.vuepress.vuejs.org/guide/markdown.html) feastues or [Assests](https://v2.vuepress.vuejs.org/guide/assets.html), you can read the VuePress documentation.
