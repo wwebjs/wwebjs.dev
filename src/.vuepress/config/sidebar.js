@@ -1,13 +1,10 @@
 export const sidebar = {
     "/guide/": [
         {
-            title: "Guide",
+            text: "GETTING STARTED",
             children: [
                 "README.md",
-                "authentication.md",
-                "handling-attachments.md",
-                "mentioning-contacts.md",
-                "interfacing-with-groups.md"
+                "what-is-new.md"
             ],
         },
     ],
