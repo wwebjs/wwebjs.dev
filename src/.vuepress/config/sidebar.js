@@ -3,8 +3,9 @@ export const sidebar = {
         {
             text: "GETTING STARTED",
             children: [
-                "README.md",
-                "what-is-new.md"
+                "/guide/README.md",
+                "/guide/what-is-new.md",
+                "/guide/installation.md"
             ],
         },
     ],

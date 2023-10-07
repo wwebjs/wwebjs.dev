@@ -1,7 +1,7 @@
 ---
+lang: en-US
 title: What's new
 description: What's new in whatsapp-web.js lasted version
-lang: en-US
 ---
 
 # {{ $frontmatter.title }}

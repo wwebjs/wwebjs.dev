@@ -1,7 +1,7 @@
 ---
+lang: en-US
 title: Introduction
 description: The introduction to whatsapp-web.js
-lang: en-US
 ---
 
 :::warning INFORMATION
