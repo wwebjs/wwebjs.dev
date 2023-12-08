@@ -38,7 +38,7 @@ chat.sendMessage(media);
 ```
 
 :::tip INFO
-You can send a caption along with the file by specifying the `caption` option while sending the message: `chat.sendMessage(media, {caption: 'this is my caption'}`
+You can send a caption along with the file by specifying the `caption` option while sending the message: `chat.sendMessage(media, {caption: 'this is my caption'})`
 :::
 
 ### Sending local files
