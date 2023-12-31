@@ -53,9 +53,7 @@ client.on('message', async (msg) => {
         let mentions = [];
 
         for(let participant of chat.participants) {
-            const contact = await client.getContactById(participant.id._serialized);
-            
-            mentions.push(contact);
+            mentions.push(`${participant.id.user}@c.us`);
             text += `@${participant.id.user} `;
         }
 
