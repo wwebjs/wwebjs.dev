@@ -20,7 +20,7 @@ client.on("ready", async () => {
 This method returns the ID of the created group, and the participants that couldn't be added.
 
 ```javascript
-client.on("ready', async () => {
+client.on("ready", async () => {
   const res = await client.createGroup("Testing 2", ["345678901@c.us", "987654321@c.us"])
 
   res.gid // ID of the group that was just created (string)
