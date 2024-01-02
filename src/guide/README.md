@@ -124,8 +124,8 @@ To test this out, let's build a simple ping/pong command:
 
 ```javascript
 client.on('message', message => {
-	if(message.body === '!ping') {
-		message.reply('pong');
+	if(message.body === 'alive') {
+		message.reply('I'M ALIVE NOW');
 	}
 });
 ```
