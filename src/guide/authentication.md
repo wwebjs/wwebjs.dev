@@ -6,30 +6,36 @@ title: Authentication
 
 By default, whatsapp-web.js does not save session information. This means that you would have to scan the QR code to reauthenticate every time you restart the client. If you'd like to persist the session, you can pass an `authStrategy` as a client option. The library provides a few authentication strategies to choose from, but you can also choose to extend them or build your own.
 
-For most cases we recommend using the [`LocalAuth` strategy](#localauth-strategy), but if you're still not on a multidevice-enabled account, you can use [`LegacySessionAuth`](#legacysessionauth-strategy) for more flexibility.
+For most cases we recommend using the [`LocalAuth` strategy](#localauth-strategy) or the [`RemoteAuth` strategy](#remoteauth-strategy) for more flexibility.
 
 ## `NoAuth` Strategy
 
-This is the default `AuthStrategy` used when you don't provide one. It does not provide any means of saving and restoring sessions. You can set this if you'd like to be explicit about getting a fresh session every time the client is restarted. 
+This is the default authentication strategy used when you don't provide one. It does not provide any means of saving and restoring sessions. You can set this if you'd like to be explicit about getting a fresh session every time the client is restarted:
 
 ```js
 const { Client, NoAuth } = require('whatsapp-web.js');
 
-const client = new Client();
-
-// equivalent to
 const client = new Client({
     authStrategy: new NoAuth()
 });
 ```
 
+:::tip INFO
+The code above is equivalent to:
+
+```js
+const { Client } = require('whatsapp-web.js');
+const client = new Client();
+```
+:::
+
 ## `LocalAuth` Strategy
 
-:::warning
+:::warning IMPORTANT
 `LocalAuth` requires a persistent filesystem to be able to restore sessions. This means that out of the box it is not compatible with hosts that provide ephemeral file systems, such as Heroku.
 :::
 
-This strategy enables session-restore functionality by passing a persistent [user data directory](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md) to the browser. This means that other data, such as message history when using a multidevice-enabled account, will also be persisted and restored. 
+This strategy enables session-restore functionality by passing a persistent [user data directory](https://chromium.googlesource.com/chromium/src/+/master/docs/user_data_dir.md) to the browser. This means that other data, such as message history, will also be persisted and restored:
 
 ```js
 const { Client, LocalAuth } = require('whatsapp-web.js');
@@ -39,109 +45,98 @@ const client = new Client({
 });
 ```
 
-By default, the relevant session files are stored under a `.wwebjs_auth` directory, but you can change this by specifying the `dataPath` option when instantiating `LocalAuth`.
+By default, the relevant session files are stored under a `.wwebjs_auth` directory, but you can change this by specifying the `dataPath` option when instantiating `LocalAuth`:
 
-### Multiple sessions
+```js
+const { Client, LocalAuth } = require('whatsapp-web.js');
+
+const client = new Client({
+    authStrategy: new LocalAuth({
+        dataPath: 'yourFolderName'
+    })
+});
+```
+
+This will create a `yourFolderName` folder with a stored session.
+
+### Multiple Sessions
+
 If you're using multiple clients belonging to different sessions, you can pass a `clientId` to segregate them:
 
 ```js
 const { Client, LocalAuth } = require('whatsapp-web.js');
 
 const client1 = new Client({
-    authStrategy: new LocalAuth({ clientId: "client-one" })
+    authStrategy: new LocalAuth({ clientId: 'client-one' })
 });
 
 const client2 = new Client({
-    authStrategy: new LocalAuth({ clientId: "client-two" })
+    authStrategy: new LocalAuth({ clientId: 'client-two' })
 });
 ```
 
-## `LegacySessionAuth` Strategy
-
-:::warning
-`LegacySessionAuth` is not compatible with multidevice-enabled accounts due to a change in how WhatsApp Web handles authentication for these accounts.
-:::
-
-This was previously the only way to authenticate, but is now discouraged since it will not work with multidevice-enabled accounts. It injects or pulls the relevant tokens from WhatsApp Web and allows the user to decide how they want to store and provide them by exposing them in the `authenticated` event payload.
-
-```js
-const { Client, LegacySessionAuth } = require('whatsapp-web.js');
-
-const client = new Client({
-    authStrategy: new LegacySessionAuth()
-});
-```
-
-### The authenticated event
-
-This event is emitted after authentication is successful, whether it's due to the QR Code being scanned or the session has been restored successfully. This event gives you a `session` object that you can use to later restore the same session.
-
-```javascript
-client.on('authenticated', (session) => {    
-    // Save the session object however you prefer.
-    // Convert it to json, save it to a file, store it in a database...
-});
-```
-
-### Restoring the session
-
-The same object you get from the `authenticated` event can be passed as an option when creating the client:
-
-```javascript
-const { Client, LegacySessionAuth } = require('whatsapp-web.js');
-
-const client = new Client({
-    authStrategy: new LegacySessionAuth({
-        session: {} // saved session object
-    })
-});
-```
-
-### Example: Saving session data to a file
-
-```javascript
-const fs = require('fs');
-const { Client, LegacySessionAuth } = require('whatsapp-web.js');
-
-// Path where the session data will be stored
-const SESSION_FILE_PATH = './session.json';
-
-// Load the session data if it has been previously saved
-let sessionData;
-if(fs.existsSync(SESSION_FILE_PATH)) {
-    sessionData = require(SESSION_FILE_PATH);
-}
-
-// Use the saved values
-const client = new Client({
-    authStrategy: new LegacySessionAuth({
-        session: sessionData
-    })
-});
-
-// Save session values to the file upon successful auth
-client.on('authenticated', (session) => {
-    sessionData = session;
-    fs.writeFile(SESSION_FILE_PATH, JSON.stringify(session), (err) => {
-        if (err) {
-            console.error(err);
-        }
-    });
-});
-```
+This will create a `wwebjs_auth` folder with folders `session-client-one` and `session-client-two` in it respectively.
 
 ## `RemoteAuth` Strategy
+[![](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/pedroslopez/whatsapp-web.js/pull/1450)
 
-::: warning INFO
-As the [`LegacySessionAuth` strategy]() is not useable for [multidevice-enabled accounts]()  you can use [`RemoteAuth` strategy]() instead for more flexibility. 
-::: 
+The `RemoteAuth` strategy allows you to save the WhatsApp session into a remote database. Instead of depending on a persistent file system, `RemoteAuth` is able to save, extract & restore sessions efficiently. It also generates periodic backups so that the saved session is always on sync and this avoids data-loss.
 
-The [`RemoteAuth` strategy]() allows you to save the WhatsApp Multi-Device session into a remote database. Instead of depending on a persistent FileSystem, RemoteAuth is able to save, extract & restore sessions efficiently. It also generates periodic backups so that the saved session is always on sync and this avoids data-loss. To use this Auth strategy you need to install the `wwebjs-mongo` module in your terminal first.
+### Remote Stores
+
+Stores are external-independent database plugins that allow storing the session into different databases. New stores will need to implement the following interface in order to work with `RemoteAuth`:
+
+<code-group>
+<code-block title="save" active>
+```javascript
+await store.save({ session: 'yourSessionName' });
+```
+</code-block>
+
+<code-block title="delete">
+```javascript
+await store.delete({ session: 'yourSessionName' });
+```
+</code-block>
+
+<code-block title="sessionExists">
+```javascript
+await store.sessionExists({ session: 'yourSessionName'});
+```
+</code-block>
+
+<code-block title="extract">
+```javascript
+await store.extract({ session: 'yourSessionName' });
+```
+</code-block>
+</code-group>
+
+You can implement your own store or use already [implemented ones](./authentication.html#implemented-stores).
+
+### Cross Platform Compatibility
+
+| Status    | OS                                |
+| :-------: |:--------------------------------- |
+| ✅        | MacOS                            |
+| ✅        | Ubuntu 20.04 (Heroku Compatible) |
+| ✅        | Windows                          |
+
+### Implemented Stores
+
+There is a couple of already implemented stores that are ready to use:
+1. [MongoDB Store](./authentication.html#mongodb-store)
+2. [AWS S3 Store](./authentication.html#aws-s3-store)
+
+### MongoDB Store
+[![](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/jtouris/wwebjs-mongo)
+
+To use this authentication strategy you need to install the `wwebjs-mongo` module in your terminal first:
 
 <code-group>
 <code-block title="npm" active>
 ```bash
-npm install wwebjs-mongo
+npm i wwebjs-mongo
 ```
 </code-block>
 
@@ -152,7 +147,7 @@ yarn add wwebjs-mongo
 </code-block>
 </code-group>
 
-### Example Usage:
+#### Usage Example
 
 ```javascript
 const { Client, RemoteAuth } = require('whatsapp-web.js');
@@ -174,53 +169,80 @@ mongoose.connect(process.env.MONGODB_URI).then(() => {
     client.initialize();
 });
 ```
-After the initial QR scan to link the device, RemoteAuth takes about `1 minute` to successfully save the WhatsApp session into the remote database, therefore the ready event does not mean the session has been saved yet.
+
+After the initial QR scan to link the device, `RemoteAuth` takes about **1 minute** to successfully save the WhatsApp session into the remote database, therefore the ready event does not mean the session has been saved yet.
 
 In order to listen to this event, you can now use the following:
 
 ```javascript
 client.on('remote_session_saved', () => {
     // Do Stuff...
-}
+});
 ```
 
-### Remote stores
-Stores are external-independent database plugins that allow storing the session into different databases. New Stores will need to implement the following interface in order to work with RemoteAuth:
+### AWS S3 Store
+[![](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/arbisyarifudin/wwebjs-aws-s3)
+
+To use this authentication strategy you need to install the `wwebjs-aws-s3` module in your terminal first:
 
 <code-group>
-<code-block title="save" active>
-```javascript
-await store.save({session: 'yourSessionName'});
+<code-block title="npm" active>
+```bash
+npm i wwebjs-aws-s3
 ```
 </code-block>
 
-<code-block title="delete">
-```javascript
-await store.delete({session: 'yourSessionName'});
-```
-</code-block>
-
-<code-block title="sessionExists">
-```javascript
-await store.sessionExists({session: 'yourSessionName'});
-```
-</code-block>
-
-<code-block title="extract">
-```javascript
-await store.extract({session: 'yourSessionName'});
+<code-block title="yarn">
+```bash
+yarn add wwebjs-aws-s3
 ```
 </code-block>
 </code-group>
 
-::: tip INFO
-Information about session // await help
-:::
+#### Usage Example
 
-### Cross Platform Compatibility
+```js
+const { Client, RemoteAuth } = require('whatsapp-web.js');
+const { AwsS3Store } = require('wwebjs-aws-s3');
+const {
+    S3Client,
+    PutObjectCommand,
+    HeadObjectCommand,
+    GetObjectCommand,
+    DeleteObjectCommand
+} = require('@aws-sdk/client-s3');
 
-| Status    | OS                               |
-| :-------: |:---------------------------------|
-| ✅        | MacOS                            |
-| ✅        | Ubuntu 20.04 (Heroku Compatible) |
-| ✅        | Windows                          |
+const s3 = new S3Client({
+    region: 'AWS_REGION',
+    credentials: {
+        accessKeyId: 'AWS_ACCESS_KEY_ID',
+        secretAccessKey: 'AWS_SECRET_ACCESS_KEY'
+    }
+});
+
+const putObjectCommand = PutObjectCommand;
+const headObjectCommand = HeadObjectCommand;
+const getObjectCommand = GetObjectCommand;
+const deleteObjectCommand = DeleteObjectCommand;
+
+const store = new AwsS3Store({
+    bucketName: 'example-bucket',
+    remoteDataPath: 'example/path/',
+    s3Client: s3,
+    putObjectCommand,
+    headObjectCommand,
+    getObjectCommand,
+    deleteObjectCommand
+});
+
+const client = new Client({
+    authStrategy: new RemoteAuth({
+        clientId: 'yourSessionName',
+        dataPath: './.wwebjs_auth',
+        store: store,
+        backupSyncIntervalMs: 600000
+    })
+});
+
+client.initialize();
+```
