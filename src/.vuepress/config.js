@@ -66,7 +66,7 @@ module.exports = {
             "",
             "authentication",
             "handling-attachments",
-            "mentioning-contacts",
+            "mentioning-users",
           ],
         },
       ],
