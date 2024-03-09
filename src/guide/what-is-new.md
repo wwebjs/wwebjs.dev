@@ -1,14 +1,14 @@
 ---
 lang: en-US
 title: What's new
-description: What's new in whatsapp-web.js lasted version
+description: A list of new features and updates to the guide
 ---
 
 # {{ $frontmatter.title }}
 
 ## Site
 
-- Upgraded from [Vuepress v1](https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md) to [Vuepress v2](https://github.com/vuepress/vuepress-next/blob/main/CHANGELOG.md)
+- Upgraded from [Vuepress v1](https://github.com/vuejs/vuepress/blob/master/CHANGELOG.md) to [Vuepress v2](https://github.com/vuepress/core/blob/main/CHANGELOG.md#200-rc8-2024-02-19)
 - Splited pages into category sections
 
 ## Pages
