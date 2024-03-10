@@ -17,7 +17,7 @@ export default defineUserConfig({
   bundler: viteBundler(),
   theme: defaultTheme({
     docsRepo: 'https://github.com/wwebjs/wwebjs.dev',
-    docsBranch: 'candy',
+    docsBranch: 'main',
     docsDir: 'src',
     repo: 'https://github.com/wwebjs/wwebjs.dev',
     logo: '/images/banner_logo.png',
