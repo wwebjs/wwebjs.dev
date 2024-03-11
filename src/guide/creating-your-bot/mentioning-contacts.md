@@ -1,12 +1,13 @@
 ---
-title: Mentioning Users
-description: How to get and send messages with mentioned users
+lang: en-US
+title: Mentioning Contacts
+description: How to get and send messages with mentioned Contacts
 ---
 
-# Mentioning Users
-![](./images/user-mentions.png)
+# Mentioning Contacts
+![Example of message with a mentioned Contact](./images/mentions.png)
 
-:::tip INFO
+:::tip
 It is possible to mention also those users who are not in your contact list.
 :::
 

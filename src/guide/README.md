@@ -1,169 +1,36 @@
 ---
-title: Getting Started
-description: How to connect and send/receive messages
+lang: en-US
+title: Introduction
+description: Introduction to the whatsapp-web.js guide
 ---
 
-# Getting Started
-
-:::warning IMPORTANT
-The whatsapp-web.js guide is still a work in progress. To learn about all the features available to you in the library, please check out the [documentation](https://docs.wwebjs.dev/).
+:::warning INFORMATION
+The whatsapp-web.js guide is a work in progress, which means there may be typos or unintentional errors. If this happens, please create an [issue on Github](https://github.com/wwebjs/wwebjs.dev/issues/new). The guide may not offer all available functions. To learn more about all the functions available to you in the library, please see the [documentation](https://docs.wwebjs.dev/).
 :::
 
-## Installation
+# {{ $frontmatter.title }}
 
-:::tip INFO
- NodeJS v12 or higher is required
-:::
+[whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js) is an unofficial, open-source library that isn't made by WhatsApp or affiliated with it in any way. This library is designed to offer developers the freedom to create WhatsApp clients, chatbots, applications, and more using [node.js](https://nodejs.org/about).
 
-You can get the module from npm:
+## Disclaimer
 
-<code-group>
-<code-block title="npm" active>
-```bash
-npm i whatsapp-web.js
-```
-</code-block>
+This project is not affiliated, associated, authorized, endorsed by, or in any way officially connected with WhatsApp or any of its subsidiaries or its affiliates. The official WhatsApp website can be found at [whatsapp.com](https://whatsapp.com). "WhatsApp" as well as related names, marks, emblems and images are registered trademarks of their respective owners. Also it is not guaranteed you will not be blocked by using this method. WhatsApp does not allow bots or unofficial clients on their platform, so this shouldn't be considered totally safe. For any businesses looking to integrate with WhatsApp for critical applications, we highly recommend using officially supported methods, such as Twilio's solution or other alternatives. You might also consider the [official API](https://developers.facebook.com/docs/whatsapp/).
 
-<code-block title="yarn">
-```bash
-yarn add whatsapp-web.js
-```
-</code-block>
-</code-group>
+## How It Works
 
-### Installation on no-gui systems
+The library works by launching the WhatsApp Web browser application and managing it using Puppeteer to create an instance of WhatsApp Web, thereby mitigating the risk of being blocked. The WhatsApp API client connects through the WhatsApp Web browser app, accessing its internal functions. This grants you access to nearly all the features available on WhatsApp Web, enabling dynamic handling similar to any other Node.js application.
 
-:::warning IMPORTANT
-If you want to install whatsapp-web.js on a system without GUI (for example `linux server images` that can just be accessed over a shell and dont have something like a desktop) there are a couple of things you need to do so puppeteer can emulate the chromium browser.
-:::
+## Requirements
 
-For puppeteer to work, you need to install the following dependencies with the `apt-get` command (remember to `apt-get update` before you install):
+Getting into bot development with whatsapp-web.js is thrilling, but there are certain prerequisites you should be aware of. To construct a bot using whatsapp-web.js, it's crucial to have a good understanding of JavaScript. While it's possible to begin with limited JavaScript and programming knowledge, attempting to create a bot without a solid grasp of the language may result in frustration. You may encounter challenges with basic tasks, find it difficult to solve simple problems, and end up feeling discouraged.
 
-```bash
-$ sudo apt install -y gconf-service libgbm-dev libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget
-```
+If you are a complete beginner, please take your time to learn more about the basics and come back with a better understanding of JavaScript and Node.js. Here are some free educational resources:
 
-You will also need to set the `--no-sandbox` flag in the puppeteer launch command:
-
-```js
-// your code here...
-
-new Client({
-	...,
-	puppeteer: {
-		args: ['--no-sandbox'],
-	}
-})
-
-// your code here...
-```
-
-::: tip INFO
-If you are running your program with root privileges, you should also use the `--disable-setuid-sandbox` flag since chromium doesn't support running root with no sandbox by default.
-:::
-
-## First steps
-
-Once installed, you're ready to connect:
-
-```javascript
-const { Client } = require('whatsapp-web.js');
-const client = new Client();
-
-client.on('qr', (qr) => {
-    console.log('QR RECEIVED', qr);
-});
-
-client.on('ready', () => {
-    console.log('Client is ready!');
-});
-
-client.initialize();
-```
-
-### QR code generation
-
-Since whatsapp-web.js works by running WhatsApp Web in the background and automating its interaction, you'll need to authorize the client by scanning a QR code from WhatsApp on your phone.
-
-Right now, we're just logging the text representation of that QR code to the console, but we can do better. Let's install and use [qrcode-terminal](https://www.npmjs.com/package/qrcode-terminal) so we can render the QR code:
-
-<code-group>
-<code-block title="npm" active>
-```bash
-npm i qrcode-terminal
-```
-</code-block>
-
-<code-block title="yarn">
-```bash
-yarn add qrcode-terminal
-```
-</code-block>
-</code-group>
-
-And now we'll modify our code to use this new module:
-
-```javascript
-const qrcode = require('qrcode-terminal');
-
-const { Client } = require('whatsapp-web.js');
-const client = new Client();
-
-client.on('qr', (qr) => {
-    qrcode.generate(qr, { small: true });
-});
-
-client.on('ready', () => {
-    console.log('Client is ready!');
-});
-
-client.initialize();
-```
-
-There we go! You should now see something like this after running the file:
-
-![](./images/qr-gen.png)
-
-After scanning this QR code, the client should be authorized and you should see a `Client is ready!` message being printed out.
-
-### Listening for messages
-
-Now that we can connect to WhatsApp, it's time to listen for incoming messages. Doing so with whatsapp-web.js is pretty straightforward. The client emits a `message` event whenever a message is received. This means we can capture it like so:
-
-```javascript
-client.on('message', (message) => {
-	console.log(message.body);
-});
-```
-
-Running this example should log all incoming messages to the console.
-
-### Replying to messages
-
-The messages received have a convenience function on them that allows you to directly reply to them via WhatsApp's reply feature. This will show the quoted message above the reply.
-
-To test this out, let's build a simple ping/pong command:
-
-```javascript
-client.on('message', async (message) => {
-	if (message.body === '!ping') {
-		await message.reply('pong');
-	}
-});
-```
-
-![](./images/ping-reply.png)
-
-You could also choose **not** to send it as a quoted reply by using the `sendMessage` function available on the client:
-
-```javascript
-client.on('message', async (message) => {
-	if (message.body === '!ping') {
-		await client.sendMessage(message.from, 'pong');
-	}
-});
-```
-
-![](./images/ping.png)
-
-In this case, notice that we had to specify which chat we were sending the message to.
+- [JavaScript Basics](https://www.udacity.com/course/javascript-basics--ud804)
+- [Modern JavaScript tutorials and examples](https://javascript.info/)
+- [Codecademy with it's interactive JavaScript course](https://www.codecademy.com/learn/introduction-to-javascript)
+- [NodeSchool learns you JavaScirpt and Node.js](https://nodeschool.io/)
+- [Alternative Node.js tutorials on W3Schools](https://www.w3schools.com/nodejs/default.asp)
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+  
+If you having trouble you can join the [Discord community](https://discord.gg/wyKybbF) and ask for help.
