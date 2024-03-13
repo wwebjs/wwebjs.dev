@@ -19,7 +19,7 @@ export default defineUserConfig({
     docsRepo: 'https://github.com/wwebjs/wwebjs.dev',
     docsBranch: 'main',
     docsDir: 'src',
-    repo: 'https://github.com/wwebjs/wwebjs.dev',
+    repo: 'https://github.com/pedroslopez/whatsapp-web.js',
     logo: '/images/banner_logo.png',
     colorModeSwitch: true,
     locales: {
