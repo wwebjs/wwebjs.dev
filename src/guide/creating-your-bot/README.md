@@ -30,7 +30,7 @@ client.on('qr', (qr) => {
 client.initialize();
 ```
 
-## QR-Code gernation
+## QR-Code generation
 
 Since whatsapp-web.js works by running WhatsApp Web in the background and automating its interaction, you'll need to authorize the client by scanning a QR code from WhatsApp on your phone. Right now, we're just logging the text representation of that QR code to the console. Let's install and use [qrcode-terminal](https://www.npmjs.com/package/qrcode-terminal) so we can render the QR code and scan it with our phone to authorize the client.
 
