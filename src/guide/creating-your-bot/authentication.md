@@ -8,6 +8,17 @@ description: Authenticate your bot with WhatsApp
 
 By default, whatsapp-web.js does not save session information. This means that you would have to scan the QR-Code to reauthenticate every time you restart the client. If you'd like to persist the session, you can pass an `authStrategy` as a client option. The library provides a few authentication strategies to choose from, but you can also choose to extend them or build your own.
 
+::: warning
+To ensure proper functioning of Puppeteer on **no-gui systems**, include the ``no-sandbox flag`` into the launch command within the configuration. Additionally, if your program runs with root privileges, remember to include the ``--disable-setuid-sandbox`` flag, as Chromium doesn't support running as root without a sandbox by default due to security reasons:
+```js {2-4}
+const client = new Client({
+    puppeteer: {
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    }
+});
+```
+:::
+
 ::: tip
 For most usage cases, we would recommend the [`LocalAuth` strategy](#localauth-strategy) because it is the easiest to use. However, you can also use the [RemoteAuth strategy](#remoteauth-strategy) for more flexibility and customization.
 :::
