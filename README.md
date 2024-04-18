@@ -1,7 +1,7 @@
 <div align="center">
     <br />
     <p>
-        <a href="https://wwebjs.dev"><img src="assets/banner_green.png" title="wwebjs.dev Guide" alt="wwebjs.dev Guide" /></a>
+        <a href="https://wwebjs.dev"><img src="src/.vuepress/public/images/banner_logo.png" title="wwebjs.dev Guide" alt="wwebjs.dev Guide" /></a>
     </p>
     <br />
     <br />

@@ -30,7 +30,7 @@ description: How to contribute to this guide.
 4. Add the file to the `guide` section in the `sidebar.js` file in the `.vuepress` folder
     <div>
         <br />
-	    <img src="../assets/sidebar.png" title="wwebjs.dev Guide" alt="wwebjs.dev Guide" />
+	    <img src="../src/.vuepress/public/images/sidebar.png" title="wwebjs.dev Guide" alt="wwebjs.dev Guide" />
     </div>
    **Note:** The correct name of the file is required with the **.md** extension
 5. Visit the page in your browser on `http://localhost:8080/guide/your-file-name.html`
