@@ -15,7 +15,7 @@
 
 ## wwebjs.dev
 
-This is the guide for the [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js) libary.
+This is the guide for the [whatsapp-web.js][wwebjs] libary.
 
 ## website status
 
@@ -27,7 +27,7 @@ Everyone is welcome to contribute to this guide and help us improve it. Please t
 
 ## Help
 
-If you experiencing issues with the guide in understaning, please open an issue or ask on [Discord](https://discord.gg/H7DqQs4) for help.
+If you experiencing issues with the guide in understaning, please open an issue or ask on [Discord][discord] for help.
 
 ## Supporting the project
 
@@ -36,6 +36,8 @@ You can support the maintainer of this project through the links below
 - [Support via GitHub Sponsors](https://github.com/sponsors/pedroslopez)
 - [Support via PayPal](https://www.paypal.me/psla/)
 
+[wwebjs]: https://github.com/pedroslopez/whatsapp-web.js
+[discord]: https://discord.gg/H7DqQs4
 [contributing]: https://github.com/wwebjs/wwebjs.dev/tree/candy/.github/CONTRIBUTING.md
 [good-first-issue]: https://github.com/wwebjs/wwebjs.dev/contribute
 [todo]: https://github.com/wwebjs/wwebjs.dev/projects/1
