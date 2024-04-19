@@ -6,13 +6,13 @@ description: Installation guide for node.js and whatsapp-web.js
 
 # {{ $frontmatter.title }}
 
-Before getting started with whatsapp-web.js, it's essential for you to install [Node.js](#installing-node-js) and [whatsapp-web.js](#installing-whatsapp-web-js) itself on your machine. Please note that whatsapp-web.js v1 requires Node v12 or higher.
+Before getting started with whatsapp-web.js, it's essential for you to install [Node.js](#installing-node-js) and [whatsapp-web.js](#installing-whatsapp-web-js) itself on your machine. Please note that whatsapp-web.js v1 requires Node v18 or higher.
 
 ::: tip
-To check if you already have Node installed on your machine, run `node -v` in your **terminal**. If the output is `v12` or higher, then you're good to go! Otherwise you should continue reading.
+To check if you already have Node installed on your machine, run `node -v` in your **terminal**. If the output is `v18` or higher, then you're good to go! Otherwise you should continue reading.
 
 ::: warning
-If you already have Node installed, but you are using an older version that is below v12, you need to upgrade your Node version too. You can do this by installing the [nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+If you already have Node installed, but you are using an older version that is below v18, you need to upgrade your Node version too. You can do this by installing the [nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
 :::
 
 ## Installing Node.js
@@ -21,7 +21,7 @@ If you already have Node installed, but you are using an older version that is b
 
 Installing Node on Windows works just like any other program. 
 
-1. Download any [version above 12+](https://nodejs.org/) from the official Node.js website.
+1. Download any [version above 18+](https://nodejs.org/) from the official Node.js website.
 2. After the download is complete, open the downloaded file and follow the installer steps.
 3. Once the installation is complete, you can use Node.js and npm in your terminal.
 
@@ -29,7 +29,7 @@ Installing Node on Windows works just like any other program.
 
 Installing Node on macOS is as easy as with installing Node on Windows.
 
-1. Download any [version above 12+](https://nodejs.org/) from the official Node.js website.
+1. Download any [version above 18+](https://nodejs.org/) from the official Node.js website.
 2. After the download is complete, open the downloaded file and follow the installer steps.
 3. Once the installation is complete, you can use Node.js and npm in your terminal.
 
@@ -94,7 +94,7 @@ Navigate to the location of your choice on your machine and create a new folder 
 If you use [Visual Studio Code](https://code.visualstudio.com/), you can press <code>Ctrl + `</code> to open its integrated terminal.
 :::
 
-With the terminal open, run the `node -v` command to ensure that you've successfully installed Node.js. If it outputs `v12` or higher, you're all set! If not, you should consider reinstalling Node.js and following the installation steps again.
+With the terminal open, run the `node -v` command to ensure that you've successfully installed Node.js. If it outputs `v18` or higher, you're all set! If not, you should consider reinstalling Node.js and following the installation steps again.
 
 #### Initialize your project
 
