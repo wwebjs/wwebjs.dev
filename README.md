@@ -1,16 +1,22 @@
 <div align="center">
     <br />
     <p>
-        <a href="https://wwebjs.dev"><img src="src/.vuepress/public/images/banner_logo.png" title="wwebjs.dev Guide" alt="wwebjs.dev Guide" width="500" /></a>
+        <a href="https://wwebjs.dev"><img src="src/.vuepress/public/images/banner_logo.png" title="wwebjs.dev Guide"
+                alt="wwebjs.dev Guide" width="500" /></a>
     </p>
     <br />
-    <br />
     <p>
-		<a href="https://www.npmjs.com/package/whatsapp-web.js"><img src="https://img.shields.io/npm/v/whatsapp-web.js.svg" alt="npm" /></a>
-        <a href="https://app.netlify.com/sites/wwebjs/deploys"><img src="https://api.netlify.com/api/v1/badges/d626778e-5786-4a34-a07d-69eda65c2430/deploy-status" alt="Netlify Status" /></a>
-        <img src="https://img.shields.io/badge/WhatsApp_Web-2.2333.11-brightgreen.svg" alt="WhatsApp_Web 2.2333.11" />
-        <a href="https://discord.gg/H7DqQs4"><img src="https://img.shields.io/discord/698610475432411196.svg?logo=discord" alt="Discord server" /></a>
-	</p>
+        <a href="https://www.npmjs.com/package/whatsapp-web.js"><img src="https://img.shields.io/npm/v/whatsapp-web.js"
+                alt="npm" /></a>
+        <a href="https://www.npmjs.com/package/vuepress"><img src="https://badgen.net/npm/v/vuepress/next"
+                alt="npm"></a>
+        <a href="https://app.netlify.com/sites/wwebjs/deploys"><img
+                src="https://api.netlify.com/api/v1/badges/d626778e-5786-4a34-a07d-69eda65c2430/deploy-status"
+                alt="Netlify Status" /></a>
+        <a href="https://discord.gg/H7DqQs4"><img
+                src="https://img.shields.io/discord/698610475432411196.svg?logo=discord" alt="Discord server" /></a>
+    </p>
+    <br />
 </div>
 
 ## About
