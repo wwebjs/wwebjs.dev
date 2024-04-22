@@ -273,7 +273,7 @@ After the initial QR scan to link the device, RemoteAuth takes about `1 minute` 
 ```js {1-3}
 client.on('remote_session_saved', () => {
     // Do Stuff...
-}
+});
 ```
 
 ### Platform Compatibility
