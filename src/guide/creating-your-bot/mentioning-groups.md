@@ -54,7 +54,7 @@ client.on('message', async (msg) => {
         // To mention a list of groups:
         const anotherGrpId = 'XXXXXXXXXX@g.us'; // defining another ID of a group to mention
         await chat.sendMessage(
-            `Here can be your custom text... @${groupId}, @${groupId}`, {
+            `Here can be your custom text... @${groupId}, @${anotherGrpId}`, {
             groupMentions: [
                 { subject: 'Some Group Name Of Your Choice', id: groupId },
                 { subject: 'Some Another Group Name', id: anotherGrpId }
