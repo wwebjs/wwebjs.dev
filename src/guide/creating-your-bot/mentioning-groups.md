@@ -27,7 +27,7 @@ This is just a helper function that simply prints group names mentioned in the m
 
 ## Sending Messages with Group Mentions
 
-You can send a message with clickable group mentions, and similar to [contact mentions](/mentioning-contacts/), when the group mention is tapped, a chat with that mentioned group will be opened.
+You can send a message with clickable group mentions, and similar to [contact mentions](./mentioning-contacts), when the group mention is tapped, a chat with that mentioned group will be opened.
 
 :::tip
 As a name of a group to mention, you can provide **your custom group name**. It aslo can be an original name, this is for your choice.
