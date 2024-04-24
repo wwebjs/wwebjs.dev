@@ -113,7 +113,7 @@ This is just a helper function that simply prints group names mentioned in the m
 
 ### Sending Messages with Group Mentions
 
-You can send a message with clickable group mentions, and similar to [user mentions](./#mentioning-users), when the group mention is tapped, a chat with that mentioned group will be opened.
+You can send a message with clickable group mentions, and similar to [user mentions](./mentions.md#mentioning-users), when the group mention is tapped, a chat with that mentioned group will be opened.
 
 :::warning IMPORTANT
 Users who do not participate in the mentioned group, will not be able to get that group opened by tapping on its mention, the same when the group does not exist.
