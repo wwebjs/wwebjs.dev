@@ -87,7 +87,11 @@ client.on('message', async (msg) => {
 
 ## Mentioning Groups
 
-![Example of message with a mentioned group](./images/group-mentions.png)
+![Example of a message with a mentioned group](./images/group-mentions.png)
+
+:::tip
+As a name of a group to mention, you can provide **your custom group name** (like in the image above). It aslo can be an original group name, this is for your choice.
+:::
 
 ### Getting Mentioned Groups
 
@@ -110,10 +114,6 @@ This is just a helper function that simply prints group names mentioned in the m
 ### Sending Messages with Group Mentions
 
 You can send a message with clickable group mentions, and similar to [user mentions](./#mentioning-users), when the group mention is tapped, a chat with that mentioned group will be opened.
-
-:::tip
-As a name of a group to mention, you can provide **your custom group name**. It aslo can be an original name, this is for your choice.
-:::
 
 :::warning IMPORTANT
 Users who do not participate in the mentioned group, will not be able to get that group opened by tapping on its mention, the same when the group does not exist.
