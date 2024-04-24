@@ -1,7 +1,7 @@
-import { defaultTheme } from '@vuepress/theme-default'
 import { viteBundler } from '@vuepress/bundler-vite'
-import { defineUserConfig } from 'vuepress'
 import { searchPlugin } from '@vuepress/plugin-search'
+import { defaultTheme } from '@vuepress/theme-default'
+import { defineUserConfig } from 'vuepress'
 import { head, navbar, sidebar } from './config/index.js'
 
 export default defineUserConfig({
@@ -20,7 +20,7 @@ export default defineUserConfig({
     docsBranch: 'main',
     docsDir: 'src',
     repo: 'https://github.com/pedroslopez/whatsapp-web.js',
-    logo: '/images/banner_logo.png',
+    logo: '/images/banner_green_green.png',
     colorModeSwitch: true,
     locales: {
       '/': {
