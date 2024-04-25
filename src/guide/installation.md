@@ -46,7 +46,7 @@ You can install Node.js on Linux using the [package manager](https://nodejs.org/
 
 #### Installation on no-gui systems
 
-If you want to installing whatsapp-web.js on a system without a GUI, such as a ``linux server image``, and you need puppeteer to emulate the Chromium browser, there are a few additional steps you'll need to take. 
+If you want to install whatsapp-web.js on a system without a GUI, such as a ``linux server image``, and you need puppeteer to emulate the Chromium browser, there are a few additional steps you'll need to take. 
 
 First, you'll need to install dependencies required by puppeteer, such as the necessary libraries and tools for running a headless Chromium browser. 
 
