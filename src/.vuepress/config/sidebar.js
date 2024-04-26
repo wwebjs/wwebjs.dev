@@ -18,7 +18,7 @@ export const sidebar = {
                 "/guide/creating-your-bot/README.md",
                 "/guide/creating-your-bot/authentication.md",
                 "/guide/creating-your-bot/handling-attachments.md",
-                "/guide/creating-your-bot/mentioning-contacts.md",
+                "/guide/creating-your-bot/mentions.md",
             ],
         },
     ],
