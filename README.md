@@ -1,22 +1,24 @@
 <div align="center">
-    <br />
-    <p>
-        <a href="https://wwebjs.dev"><img src="https://github.com/wwebjs/assets/blob/main/6_Logo_Banner_Format/Mix/banner_green_green.png?raw=true" title="wwebjs.dev Guide"
-                alt="wwebjs.dev Guide" width="500" /></a>
-    </p>
-    <br />
-    <p>
-        <a href="https://www.npmjs.com/package/whatsapp-web.js"><img src="https://img.shields.io/npm/v/whatsapp-web.js"
-                alt="npm" /></a>
-        <a href="https://www.npmjs.com/package/vuepress"><img src="https://badgen.net/npm/v/vuepress/next"
-                alt="npm"></a>
-        <a href="https://app.netlify.com/sites/wwebjs/deploys"><img
-                src="https://api.netlify.com/api/v1/badges/d626778e-5786-4a34-a07d-69eda65c2430/deploy-status"
-                alt="Netlify Status" /></a>
-        <a href="https://discord.gg/H7DqQs4"><img
-                src="https://img.shields.io/discord/698610475432411196.svg?logo=discord" alt="Discord server" /></a>
-    </p>
-    <br />
+  <br>
+
+  <a href="https://guide.wwebjs.dev/">
+
+  ![WWebJS Guide](https://github.com/wwebjs/logos/blob/main/4_Full%20Logo%20Lockup_Small/small_banner_white.png?raw=true#gh-light-mode-only)
+  ![WWebJS Guide](https://github.com/wwebjs/logos/blob/main/4_Full%20Logo%20Lockup_Small/small_banner_black.png?raw=true#gh-dark-mode-only)
+
+  </a>
+
+  <br>
+  <p>
+    <a href="https://www.npmjs.com/package/whatsapp-web.js"><img src="https://img.shields.io/npm/v/whatsapp-web.js"
+        alt="npm" /></a>
+    <a href="https://www.npmjs.com/package/vuepress"><img src="https://badgen.net/npm/v/vuepress/next" alt="npm"></a>
+    <a href="https://app.netlify.com/sites/wwebjs/deploys"><img
+        src="https://api.netlify.com/api/v1/badges/d626778e-5786-4a34-a07d-69eda65c2430/deploy-status"
+        alt="Netlify Status" /></a>
+    <a href="https://discord.gg/H7DqQs4"><img src="https://img.shields.io/discord/698610475432411196.svg?logo=discord"
+        alt="Discord server" /></a>
+  </p>
 </div>
 
 ## About
