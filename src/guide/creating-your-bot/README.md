@@ -105,7 +105,7 @@ To listen for incoming messages, the client needs to listen for the `message` ev
 
 ```js {2-4}
 // Listening to all incoming messages
-client.on('message_create', message => {
+client.on('message', message => {
 	console.log(message.body);
 });
 ```
@@ -115,7 +115,7 @@ client.on('message_create', message => {
 To reply to a message, you can use the `sendMessage` method. This method accepts a string as a parameter, which will be sent as a message. This capability also allows you to create commands. Here's an example of a simple ping/pong command:
 
 ```js {2-5}
-client.on('message_create', message => {
+client.on('message', message => {
 	if (message.body === '!ping') {
 		// send back "pong" to the chat the message was sent in
 		client.sendMessage(message.from, 'pong');
@@ -128,7 +128,7 @@ client.on('message_create', message => {
 The messages object contains also a `reply()` method, which allows you to directly reply to a message. This method also require a string as a parameter, which will be sent as a message.
 
 ```js {3-4}
-client.on('message_create', message => {
+client.on('message', message => {
 	if (message.body === '!ping') {
 		// reply back "pong" directly to the message
 		message.reply('pong');
