@@ -21,7 +21,7 @@
 
 ## About
 
-This is the website for wwebjs.dev and the guide for the [whatsapp-web.js][wwebjs] library.
+This is the website for wwebjs.dev and the guide for the [whatsapp-web.js](wwebjs) library.
 
 ## Links
 
