@@ -1,0 +1,11 @@
+name: 📚 Guide Additions Request
+description: Use this template to suggest additions for the guide
+labels: [documentation, enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: |
+        **CLEARY DESCRIBE GUIDE ADDITIONS YOU ARE REQUESTING, YOU CAN ADD PICTURES IF YOU WANT TO:**
+    validations:
+      required: true
