@@ -1,0 +1,11 @@
+name: 🐛 Bug Report
+description: Use this template to report a bug in the guide
+labels: [bug, documentation]
+body:
+  - type: textarea
+    attributes:
+      label: Description
+      description: |
+        **CLEARY DESCRIBE A BUG IN THE GUIDE YOU ARE REPORTING, YOU CAN ADD PICTURES IF YOU WANT TO:**
+    validations:
+      required: true
