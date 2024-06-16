@@ -6,9 +6,7 @@
   "author": "WWebJS Contributors",
   "scripts": {
     "docs:dev": "vuepress dev src",
-    "docs:build": "vuepress build src",
-    "dev": "vuepress dev src",
-    "build": "NODE_ENV=PROD vuepress build src"
+    "docs:build": "vuepress build src"
   },
   "homepage": "https://wwebjs.dev",
   "license": "MIT",
