@@ -12,5 +12,5 @@ export const head = [
     ['meta', { property: 'og:type', content: 'website' }],
     ['meta', { property: 'og:url', content: 'https://wwebjs.dev/' }],
     ['meta', { property: 'og:locale', content: 'en_US' }],
-    ['meta', { property: 'og:image', content: '/images/banner_logo.png' }],
+    ['meta', { property: 'og:image', content: '/images/logo.png' }],
 ];
