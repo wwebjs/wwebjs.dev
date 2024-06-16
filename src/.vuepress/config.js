@@ -1,8 +1,7 @@
 import { viteBundler } from '@vuepress/bundler-vite'
-import { searchPlugin } from '@vuepress/plugin-search'
 import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
-import { head, navbar, sidebar } from './config/index.js'
+import { head, navbar, sidebar, plugins } from './config/index.js'
 
 export default defineUserConfig({
   head,
@@ -30,13 +29,5 @@ export default defineUserConfig({
       }
     },
   }),
-  plugins: [
-    searchPlugin({
-      locales: {
-        '/': {
-          placeholder: 'Search'
-        }
-      },
-    }),
-  ],
+  plugins: plugins
 })

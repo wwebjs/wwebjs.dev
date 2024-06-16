@@ -7,14 +7,14 @@
   "scripts": {
     "docs:dev": "vuepress dev src",
     "docs:build": "vuepress build src",
-    "guide:dev": "vuepress dev src",
-    "guide:build": "vuepress build src"
+    "dev": "vuepress dev src",
+    "build": "NODE_ENV=PROD vuepress build src"
   },
   "homepage": "https://wwebjs.dev",
   "license": "MIT",
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.12",
-    "@vuepress/plugin-search": "2.0.0-rc.33",
+    "@vuepress/plugin-docsearch": "^2.0.0-rc.33",
     "@vuepress/theme-default": "2.0.0-rc.33",
     "vuepress": "2.0.0-rc.12"
   },
