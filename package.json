@@ -13,8 +13,7 @@
   "devDependencies": {
     "@vuepress/bundler-vite": "2.0.0-rc.12",
     "@vuepress/plugin-docsearch": "2.0.0-rc.33",
-    "@vuepress/theme-default": "2.0.0-rc.33",
-    "vuepress": "2.0.0-rc.12"
+    "@vuepress/theme-default": "2.0.0-rc.33"
   },
   "engines": {
     "node": ">=18.20.3"
