@@ -123,7 +123,7 @@ await store.save({session: 'yourSessionName'});
 ```
 
 </CodeGroupItem>
-<CodeGroupItem title="sessionExists">
+<CodeGroupItem title="extract">
 
 ```js
 await store.extract({session: 'yourSessionName'});
