@@ -58,7 +58,7 @@ After installing these dependencies, you can proceed with installing whatsapp-we
 
 ## Setup essentials
 
-After installed Node, you can now run commands in your terminal. We recommend using [npm](https://www.npmjs.com/)(Node's package manager) that comes bundelt with every Node installation. However, you have the option to use either [Yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/) as your package manager. The guide supports all three package managers in the examples.
+After installed Node, you can now run commands in your terminal. We recommend using [npm](https://www.npmjs.com/)(Node's package manager) that comes bundled with every Node installation. However, you have the option to use either [Yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/) as your package manager. The guide supports all three package managers in the examples.
 
 ### Choose an editor
 
