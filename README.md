@@ -1,9 +1,7 @@
 <div align="center">
   <br>
   <p>
-    <a href="https://wwebjs.dev"><img
-        src="https://github.com/wwebjs/logos/blob/main/4_Full%20Logo%20Lockup_Small/small_banner_blue.png?raw=true"
-        title="wwebjs.dev Guide" alt="wwebjs.dev Guide" width="500" /></a>
+    <a href="https://wwebjs.dev"><img src="https://github.com/wwebjs/assets/blob/main/Collection/GitHub/wwebjs.png?raw=true" title="whatsapp-web.js" alt="WWebJS Website" width="500" /></a>
   </p>
   <br>
   <p>
@@ -21,15 +19,14 @@
 
 ## About
 
-This is the website for wwebjs.dev and the guide for the [whatsapp-web.js](wwebjs) library.
+This is the guide for the [whatsapp-web.js](wwebjs) library.
 
 ## Links
 
-* [Website][website]
-* [Guide][guide] ([source][guide-source]) _(work in progress)_
-* [Documentation][documentation] ([source][documentation-source])
-* [WWebJS Discord][discord]
 * [GitHub][gitHub]
+* [Guide][guide] ([source][guide-source])
+* [Documentation][documentation] ([source][documentation-source])
+* [Discord Server][discord]
 * [npm][npm]
 
 ## Contributing
