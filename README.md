@@ -32,13 +32,22 @@ This is the website for wwebjs.dev and the guide for the [whatsapp-web.js](wwebj
 * [GitHub][gitHub]
 * [npm][npm]
 
+## Getting Started
+
+To run this website locally for development:
+
+1. Clone the repository: `git clone https://github.com/wwebjs/wwebjs.dev.git`
+2. Install dependencies: `npm install`
+3. Start the development server: `npm run dev`
+4. Open your browser at `http://localhost:8080`
+
 ## Contributing
 
-Everyone is welcome to contribute to this guide and help us improve it. Please take a moment to review the [guidelines for contributing][contributing] first, befor creating a pull request. Don't rush a contribution, test changes locally, make sure you're doing it correctly and then submit a pull request. Ideas for you first contribution can be found in the issue label [good first issue][good-first-issue] or in the [To-Do section][todo].
+Everyone is welcome to contribute to this guide and help us improve it. Please take a moment to review the [guidelines for contributing][contributing] first, before creating a pull request. Don't rush a contribution, test changes locally, make sure you're doing it correctly and then submit a pull request. Ideas for you first contribution can be found in the issue label [good first issue][good-first-issue] or in the [To-Do section][todo].
 
 ## Help
 
-If you experiencing issues with the guide in understaning, please open an issue or ask on [Discord][discord] for help.
+If you experiencing issues with the guide in understanding, please open an issue or ask on [Discord][discord] for help.
 
 [wwebjs]: https://github.com/pedroslopez/whatsapp-web.js
 [website]: https://wwebjs.dev
