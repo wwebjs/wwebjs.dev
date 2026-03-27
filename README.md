@@ -21,7 +21,7 @@
 
 ## About
 
-This is the website for wwebjs.dev and the guide for the [whatsapp-web.js](wwebjs) library.
+This is the official repository for [wwebjs.dev](https://wwebjs.dev), the documentation and tutorial hub for the [whatsapp-web.js](https://github.com/pedroslopez/whatsapp-web.js) library. This site is built with VuePress and aims to provide clear, community-driven guides for building WhatsApp bots and integrations.
 
 ## Links
 
