@@ -126,7 +126,7 @@ await store.save({session: 'yourSessionName'});
 <CodeGroupItem title="sessionExists">
 
 ```js
-await store.extract({session: 'yourSessionName'});
+await store.extract({session: 'yourSessionName', path: '/path/to/the/extracted/session/RemoteAuth.zip'});
 ```
 
 </CodeGroupItem>
