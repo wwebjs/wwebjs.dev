@@ -94,7 +94,8 @@ Because of this, you'll need to point Puppeteer to use a separately installed Ch
 ```javascript
 const client = new Client({
     puppeteer: {
-        executablePath: '/path/to/Chrome',
+        executablePath:Google\\Chrome\\Application\\chrome
+ '/path/to/Chrome',
     }
 })
 ```
