@@ -1,4 +1,5 @@
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+import { ogGeneratorPlugin } from '../plugins/og-generator.js'
 
 export const plugins = [
   docsearchPlugin({
@@ -15,5 +16,6 @@ export const plugins = [
         }
       }
     }
-  })
+  }),
+  ogGeneratorPlugin()
 ];

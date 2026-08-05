@@ -6,3 +6,7 @@ package-lock.json
 .idea
 .vscode
 .env
+dist/
+src/.vuepress/dist/
+src/.vuepress/public/images/og-gen/
+src/public/images/og-gen/

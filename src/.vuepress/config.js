@@ -2,6 +2,7 @@ import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress'
 import { head, navbar, sidebar, plugins } from './config/index.js'
+import { ogGeneratorPlugin } from './plugins/og-generator.js'
 
 export default defineUserConfig({
   head,
@@ -29,5 +30,9 @@ export default defineUserConfig({
       }
     },
   }),
-  plugins: plugins
+  plugins: [
+    ...plugins,
+    ogGeneratorPlugin()
+  ]
 })
+

@@ -17,5 +17,9 @@
   },
   "engines": {
     "node": ">=20.14.0"
+  },
+  "dependencies": {
+    "sharp": "^0.35.3",
+    "takumi-js": "^2.5.4"
   }
 }
