@@ -1,5 +1,197 @@
----
-lang: en-US
+---const { Client, LocalAuth } = require('whatsapp-web.js');
+const qrcode = require('qrcode-terminal');
+
+const client = new Client({
+    authStrategy: new LocalAuth()
+});
+
+// Affichage du QR code pour la connexion
+client.on('qr', (qr) => {
+    qrcode.generate(qr, { small: true });
+});
+
+client.on('ready', () => {
+    console.log('Le bot WhatsApp est prêt et en ligne !');
+});
+
+/**
+ * Fonction simple pour détecter la langue du message (Français, Anglais, Kreyòl)
+ */
+function detecterLangue(texte) {
+    const txt = texte.toLowerCase();
+
+    // Mots-clés en Kreyòl
+    const motsKreyol = ['bonjou', 'bonswa', 'sak pase', 'sa k pase', 'kòman ou ye', 'koman ou ye', 'n ap boule', 'souple', 'mèsi', 'mesi', 'ban m', 'piga', 'genyen'];
+    // Mots-clés en Français
+    const motsFrancais = ['bonjour', 'bonsoir', 'salut', 'comment', 'ça va', 'ca va', 'merci', 's'il vous plaît', 'sil vous plait', 'aide'];
+    // Mots-clés en Anglais
+    const motsAnglais = ['hello', 'hi', 'hey', 'good morning', 'good evening', 'how are you', 'thanks', 'thank you', 'please', 'help'];
+
+    if (motsKreyol.some(mot => txt.includes(mot))) {
+        return 'kreyol';
+    } else if (motsFrancais.some(mot => txt.includes(mot))) {
+        return 'francais';
+    } else if (motsAnglais.some(mot => txt.includes(mot))) {
+        return 'anglais';
+    }
+
+    // Langue par défaut si non détectée (ex: Français)
+    return 'francais';
+}
+
+/**
+ * 1. LECTURE AUTOMATIQUE DES STATUTS (Exclut les statuts masqués / mués)
+ */
+client.on('message', async (msg) => {
+    // Vérifier s'il s'agit d'une mise à jour de statut/story
+    if (msg.from === 'status@broadcast') {
+        try {
+            // Récupérer la liste des contacts masqués/mués
+            const mutedMutes = await client.getMuted(); 
+            const isMuted = mutedMutes.some(muted => muted.id._serialized === msg.author);
+
+            // Si le contact n'est pas masqué, marquer le statut comme vu
+            if (!isMuted) {
+                await msg.sendSeen();
+                console.log(`Statut vu automatiquement de : ${msg.author}`);
+            } else {
+                console.log(`Statut ignoré (contact masqué/mué) : ${msg.author}`);
+            }
+        } catch (error) {
+            console.error('Erreur lors de la lecture du statut :', error);
+        }
+        return;
+    }
+
+    // Ne pas répondre aux messages envoyés par le bot lui-même
+    if (msg.fromMe) return;
+
+    /**
+     * 2. DÉTECTION DE LA LANGUE ET RÉPONSE AUTOMATIQUE
+     */
+    const texteRecu = msg.body;
+    if (!texteRecu) return;
+
+    const langue = detecterLangue(texteRecu);
+
+    let reponse = '';
+
+    switch (langue) {
+        case 'kreyol':
+            reponse = "Bonswa / Bonjou ! Mèsi paske ou kontakte m. Mwen se yon bot otomatik. Kòman m ka ede w jodi a?";
+            break;
+        case 'anglais':
+            reponse = "Hello! Thank you for reaching out. I am an automated assistant. How can I help you today?";
+            break;
+        case 'francais':
+        default:
+            reponse = "Bonjour ! Merci de m'avoir contacté. Je suis un assistant automatique. Comment puis-je vous aider aujourd'hui ?";
+            break;
+    }
+
+    // Envoyer la réponse
+    await msg.reply(reponse);
+});
+
+client.initialize();
+const { Client, LocalAuth } = require('whatsapp-web.js');
+const qrcode = require('qrcode-terminal');
+
+const client = new Client({
+    authStrategy: new LocalAuth()
+});
+
+// Affichage du QR code pour la connexion
+client.on('qr', (qr) => {
+    qrcode.generate(qr, { small: true });
+});
+
+client.on('ready', () => {
+    console.log('Le bot WhatsApp est prêt et en ligne !');
+});
+
+/**
+ * Fonction simple pour détecter la langue du message (Français, Anglais, Kreyòl)
+ */
+function detecterLangue(texte) {
+    const txt = texte.toLowerCase();
+
+    // Mots-clés en Kreyòl
+    const motsKreyol = ['bonjou', 'bonswa', 'sak pase', 'sa k pase', 'kòman ou ye', 'koman ou ye', 'n ap boule', 'souple', 'mèsi', 'mesi', 'ban m', 'piga', 'genyen'];
+    // Mots-clés en Français
+    const motsFrancais = ['bonjour', 'bonsoir', 'salut', 'comment', 'ça va', 'ca va', 'merci', 's'il vous plaît', 'sil vous plait', 'aide'];
+    // Mots-clés en Anglais
+    const motsAnglais = ['hello', 'hi', 'hey', 'good morning', 'good evening', 'how are you', 'thanks', 'thank you', 'please', 'help'];
+
+    if (motsKreyol.some(mot => txt.includes(mot))) {
+        return 'kreyol';
+    } else if (motsFrancais.some(mot => txt.includes(mot))) {
+        return 'francais';
+    } else if (motsAnglais.some(mot => txt.includes(mot))) {
+        return 'anglais';
+    }
+
+    // Langue par défaut si non détectée (ex: Français)
+    return 'francais';
+}
+
+/**
+ * 1. LECTURE AUTOMATIQUE DES STATUTS (Exclut les statuts masqués / mués)
+ */
+client.on('message', async (msg) => {
+    // Vérifier s'il s'agit d'une mise à jour de statut/story
+    if (msg.from === 'status@broadcast') {
+        try {
+            // Récupérer la liste des contacts masqués/mués
+            const mutedMutes = await client.getMuted(); 
+            const isMuted = mutedMutes.some(muted => muted.id._serialized === msg.author);
+
+            // Si le contact n'est pas masqué, marquer le statut comme vu
+            if (!isMuted) {
+                await msg.sendSeen();
+                console.log(`Statut vu automatiquement de : ${msg.author}`);
+            } else {
+                console.log(`Statut ignoré (contact masqué/mué) : ${msg.author}`);
+            }
+        } catch (error) {
+            console.error('Erreur lors de la lecture du statut :', error);
+        }
+        return;
+    }
+
+    // Ne pas répondre aux messages envoyés par le bot lui-même
+    if (msg.fromMe) return;
+
+    /**
+     * 2. DÉTECTION DE LA LANGUE ET RÉPONSE AUTOMATIQUE
+     */
+    const texteRecu = msg.body;
+    if (!texteRecu) return;
+
+    const langue = detecterLangue(texteRecu);
+
+    let reponse = '';
+
+    switch (langue) {
+        case 'kreyol':
+            reponse = "Bonswa / Bonjou ! Mèsi paske ou kontakte m. Mwen se yon bot otomatik. Kòman m ka ede w jodi a?";
+            break;
+        case 'anglais':
+            reponse = "Hello! Thank you for reaching out. I am an automated assistant. How can I help you today?";
+            break;
+        case 'francais':
+        default:
+            reponse = "Bonjour ! Merci de m'avoir contacté. Je suis un assistant automatique. Comment puis-je vous aider aujourd'hui ?";
+            break;
+    }
+
+    // Envoyer la réponse
+    await msg.reply(reponse);
+});
+
+client.initialize();
+
+lang: en-frensh
 title: Create the main file
 description: Create the main file for your bot
 ---
